@@ -18,6 +18,6 @@ public class homeController {
     @GetMapping("/")
     public String index(ModelMap model) {
         model.addAttribute("pageTitle","Home");
-        return "client/pages/home/index";
+        return "client/home";
     }
 }

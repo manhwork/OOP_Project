@@ -9,14 +9,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  *
- * @author MTQV
+ * @author admin
  */
 @Controller
+public class categoryController {
 
-public class adminController {
-
-    @GetMapping("/admin/dashboard")
+    @GetMapping("/admin/category")
     public String index() {
-        return "admin/dashboard.html";
+        return "admin/category.html";
+    }
+
+    @GetMapping("/admin/category/add")
+    public String add() {
+        return "admin/categoryAdd";
     }
 }
