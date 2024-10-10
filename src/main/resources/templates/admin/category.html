@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/base}">
+    <div layout:fragment="base">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="box" bis_skin_checked="1">
+
+             
+                                <td>1   </td>
+                                <td>Hình ảnh minh hoạ   </td>
+                                <td>Tiêu đề minh hoạ    </td>
+                                <td><span class="label label-danger">Dừng hoạt động</span></td>
+                                <td>
+                                    <a href="/admin/category/detail/:id" class=""><span class="label label-default">Chi tiết</span></a>
+                                    <a href="/admin/category/edit/:id" class=""><span class="label label-info">Sửa</span></a>
+                                    <a href="/admin/category/delete/:id" class=""><span class="label label-danger">Xoá</span></a>
+                                </td>   <div class="box-body" bis_skin_checked="1">
+                    <a href="/admin/category/add" class="btn  btn-success text-right" style="margin-bottom: 10px">+ Thêm mới</a>
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th style="width: 10px">STT</th>
+                                <th>Hình ảnh</th>
+                                <th>Tên</th>
+                                <th>Trạng thái</th>
+                                <th>Hành Động</th>
+                            </tr>
+                            <tr>
+                                <td>1   </td>
+                                <td>Hình ảnh minh hoạ   </td>
+                                <td>Tiêu đề minh hoạ    </td>
+                                <td><span class="label label-success">Hoạt động</span></td>
+                                <td>
+                                    <a href="/admin/category/detail/:id" class=""><span class="label label-default">Chi tiết</span></a>
+                                    <a href="/admin/category/edit/:id" class=""><span class="label label-info">Sửa</span></a>
+                                    <a href="/admin/category/delete/:id" class=""><span class="label label-danger">Xoá</span></a>
+                                </td>
+                            </tr>
+                            <tr>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="box-footer clearfix" bis_skin_checked="1">
+                    <ul class="pagination pagination-sm no-margin pull-right">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</html>
