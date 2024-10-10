@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/base}">
+    <div layout:fragment="base">
+        <div class="box box-primary" bis_skin_checked="1">
+
+            <form role="form" th:action="@{'/admin/category/edit' " th:object="${category}" method="post">
+                <input th:field="*{id}" type="hidden" name="title" class="form-control" id="exampleInputEmail1" placeholder="Nhập tiêu đề">
+
+                <div class="box-body" bis_skin_checked="1">
+                    <div class="form-group" bis_skin_checked="1">
+                        <label for="exampleInputEmail1">Tiêu đề</label>
+                        <input th:field="*{title}" type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="Nhập tiêu đề">
+                    </div>
+                    <div class="form-group" bis_skin_checked="1">
+                        <label for="exampleInputPassword1">Mô tả</label>
+                        <input th:field="*{description}" type="text" name="description" class="form-control" id="exampleInputPassword1" placeholder="Nhập mô tả">
+                    </div>
+                    <div class="form-group" bis_skin_checked="1">
+                        <label for="exampleInputPassword1">Slug</label>
+                        <input  th:field="*{slug}" type="text" name="slug" class="form-control" id="exampleInputPassword1" placeholder="Nhập slug">
+                    </div>
+                    <div class="form-group f-flex justify-content-center align-item-center" bis_skin_checked="1">
+                        <label for="active">Hoạt động</label>
+                        <input checked='true' th:field="*{is_active}" id="active" style="margin-right: 10px " type="radio" name="is_active" value="1">
+                        <label for="inactive">Dừng hoạt động</label>
+                        <input th:field="*{is_active}" id="inactive" type="radio" name="is_active" value="0">
+                    </div>
+                    <div class="form-group" bis_skin_checked="1">
+                        <label for="exampleInputFile">Ảnh</label>
+                        <input type="file" id="exampleInputFile">
+                        <p  class="help-block">Example block-level help text here.</p>
+                    </div>
+                </div>
+
+                <div class="box-footer" bis_skin_checked="1">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</html>

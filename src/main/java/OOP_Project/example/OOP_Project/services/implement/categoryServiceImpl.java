@@ -17,15 +17,15 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class categoryServiceImpl implements categoryService {
-    
+
     @Autowired
     private categoryRepository categoryRepository;
-    
+
     @Override
     public List<categoryModel> getAll() {
         return this.categoryRepository.findAll();
     }
-    
+
     @Override
     public Boolean create(categoryModel category) {
         try {
@@ -36,20 +36,26 @@ public class categoryServiceImpl implements categoryService {
         }
         return false;
     }
-    
+
     @Override
     public categoryModel findById(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.categoryRepository.findById(id).get();
     }
-    
+
     @Override
     public Boolean update(categoryModel category) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            this.categoryRepository.save(category);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
-    
+
     @Override
     public Boolean delete(categoryModel category) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }
