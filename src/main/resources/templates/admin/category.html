@@ -19,28 +19,21 @@
                                 <th>Trạng thái</th>
                                 <th>Hành Động</th>
                             </tr>
-                            <tr>
-                                <td>1   </td>
+                            <tr th:each="record, index : ${records}">
+                                <td th:text="${index.index + 1}">   </td>
                                 <td>Hình ảnh minh hoạ   </td>
-                                <td>Tiêu đề minh hoạ    </td>
-                                <td><span class="label label-success">Hoạt động</span></td>
+                                <td th:text="${record.title}"></td>
                                 <td>
-                                    <a href="/admin/category/detail/:id" class=""><span class="label label-default">Chi tiết</span></a>
-                                    <a href="/admin/category/edit/:id" class=""><span class="label label-info">Sửa</span></a>
-                                    <a href="/admin/category/delete/:id" class=""><span class="label label-danger">Xoá</span></a>
+                                    <span th:if="${record.is_active}" class="label label-success">Hoạt động</span>
+                                    <span th:if="${!record.is_active}" class="label label-danger">Dừng hoạt động</span>
+                                </td>
+                                <td>
+                                    <a th:href="@{'/admin/category/detail/' + ${record.id}}" class=""><span class="label label-default">Chi tiết</span></a>
+                                    <a th:href="@{'/admin/category/edit/' + ${record.id}}" class=""><span class="label label-info">Sửa</span></a>
+                                    <a th:href="@{'/admin/category/delete/' + ${record.id}}" class=""><span class="label label-danger">Xoá</span></a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>1   </td>
-                                <td>Hình ảnh minh hoạ   </td>
-                                <td>Tiêu đề minh hoạ    </td>
-                                <td><span class="label label-danger">Dừng hoạt động</span></td>
-                                <td>
-                                    <a href="/admin/category/detail/:id" class=""><span class="label label-default">Chi tiết</span></a>
-                                    <a href="/admin/category/edit/:id" class=""><span class="label label-info">Sửa</span></a>
-                                    <a href="/admin/category/delete/:id" class=""><span class="label label-danger">Xoá</span></a>
-                                </td> 
-                            </tr>
+
 
                         </tbody>
                     </table>
