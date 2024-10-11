@@ -1,2 +1,8 @@
+OOP_Project\example\OOP_Project\services\implement\categoryServiceImpl.class
+OOP_Project\example\OOP_Project\repository\categoryRepository.class
 OOP_Project\example\OOP_Project\controllers\client\homeController.class
 OOP_Project\example\OOP_Project\OopProjectApplication.class
+OOP_Project\example\OOP_Project\models\categoryModel.class
+OOP_Project\example\OOP_Project\services\categoryService.class
+OOP_Project\example\OOP_Project\controllers\admin\adminController.class
+OOP_Project\example\OOP_Project\controllers\admin\categoryController.class
