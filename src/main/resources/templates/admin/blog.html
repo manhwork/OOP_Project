@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/base}">
+    <div layout:fragment="base">
+        <section class="content-header">
+            <div class="box" bis_skin_checked="1">
+                <div class="box-body" bis_skin_checked="1">
+                    <a href="/admin/blog/add" class="btn btn-success text-right" style="margin-bottom: 10px">+ Thêm mới</a>
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th style="width: 10px">STT</th>
+                                <th>Tên</th>
+                                <th>Hình ảnh</th>
+                                <th>Trạng thái</th>
+                                <th>Hành Động</th>
+                            </tr>
+                            <tr th:each="record, index : ${records}">
+                                <td th:text="${index.index + 1}"></td>
+                                <td th:text="${record.title}"></td>
+                                <td><img th:src="@{${record.image}}" alt="Hình ảnh blog" style="width: 100px; height: auto;"></td>
+                                <td>
+                                    <span th:if="${record.is_active}" class="label label-success">Hoạt động</span>
+                                    <span th:if="${!record.is_active}" class="label label-danger">Dừng hoạt động</span>
+                                </td>
+                                <td>
+                                    <a th:href="@{'/admin/blog/detail/' + ${record.id}}" class=""><span class="label label-default">Chi tiết</span></a>
+                                    <a th:href="@{'/admin/blog/edit/' + ${record.id}}" class=""><span class="label label-info">Sửa</span></a>
+                                    <a th:href="@{'/admin/blog/delete/' + ${record.id}}" class=""><span class="label label-danger">Xoá</span></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="box-footer clearfix" bis_skin_checked="1">
+                    <ul class="pagination pagination-sm no-margin pull-right">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</html>

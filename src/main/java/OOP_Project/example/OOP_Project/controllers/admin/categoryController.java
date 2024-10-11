@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package OOP_Project.example.OOP_Project.controllers.admin;
 
 import OOP_Project.example.OOP_Project.models.categoryModel;
@@ -15,10 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/**
- *
- * @author admin
- */
+
 @Controller
 @RequestMapping("/admin")
 public class categoryController {
@@ -41,7 +35,6 @@ public class categoryController {
         String title = "Thêm mới danh mục sản phẩm";
         model.addAttribute("title", title);
         model.addAttribute("category", new categoryModel());
-        Boolean checked = true;
         return "admin/categoryAdd";
     }
 

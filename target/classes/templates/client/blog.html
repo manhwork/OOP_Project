@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{client/base}">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title th:text="${pageTitle}">Blog</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+            />
+        <link rel="stylesheet" th:href="@{/asset/reset.css}" />
+        <link rel="stylesheet" th:href="@{/asset/base.css}" />
+        <link rel="stylesheet" th:href="@{/asset/pages/books/style.css}" />
+        <link rel="stylesheet" th:href="@{/style-blog.css}" />
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="inner-logo">
+                        <img th:src="@{/site-logo.svg}" alt="Logo" />
+                    </div>
+
+                    <ul class="inner-menu">
+                        <a th:href="@{/home}"><li>Home</li></a>
+                        <a th:href="@{/books}"><li>Books</li></a>
+                        <a th:href="#"><li>About Author</li></a>
+                        <a th:href="@{client/blog}"><li>Blog</li></a>
+                        <a th:href="#"><li>Contact</li></a>
+                    </ul>
+
+                    <div class="inner-feature">
+                        <a th:href="@{/login}" class="login">Sign in</a>
+                        <a href="#" class="sign">Sign up</a>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <div style="color: var(--color-cart)" class="ineer-price">
+                            <span th:text="${cartTotal}">$0.00</span>
+                        </div>
+                        <i style="color: var(--color-cart)" class="fa-solid fa-cart-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End Header -->
+
+        <!-- Section -->
+        <div class="card-container">
+            <div class="card" th:each="book : ${books}">
+                <img th:src="@{${book.imagePath}}" th:alt="${book.title}">
+                <div class="card-content">
+                    <h2 th:text="${book.title}">Book Title</h2>
+                    <p class="beta">Leave a Comment / Uncategorized / <span th:text="${book.author}">Author</span></p>
+                    <p th:text="${book.description}">
+                        Book description goes here...
+                    </p>
+                    <a th:href="@{${book.link}}">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub">
+            <div class="subscribe-container">
+                <h1>Be the first to know</h1>
+                <p>Lectus amet scelerisque fusce est venenatis, eget enim dolor amet vitae pharetra</p>
+                <div class="subscribe-form">
+                    <input type="email" placeholder="Your email please">
+                    <button type="submit">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <!-- End Section -->
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="inner-logo">
+                        <img th:src="@{/site-logo-white.svg}" alt="Logo" />
+                    </div>
+
+                    <ul class="inner-menu">
+                        <a th:href="#"><li>Home</li></a>
+                        <a th:href="#"><li>Books</li></a>
+                        <a th:href="#"><li>About Author</li></a>
+                        <a th:href="@{client/blog}"><li>Blog</li></a>
+                        <a th:href="#"><li>Contact</li></a>
+                    </ul>
+
+                    <div class="inner-icon">
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-youtube"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                    </div>
+                </div>
+                <div class="inner-copy">
+                    <p>Copyright © <span th:text="${currentYear}">2024</span> Book Store | Powered by Book Store</p>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+    </body>
+</html>

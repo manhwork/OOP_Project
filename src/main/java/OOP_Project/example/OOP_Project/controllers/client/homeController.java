@@ -20,4 +20,5 @@ public class homeController {
         model.addAttribute("pageTitle","Home");
         return "client/home";
     }
+     
 }
