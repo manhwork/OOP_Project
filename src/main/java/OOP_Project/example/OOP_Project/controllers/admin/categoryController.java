@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -39,13 +40,31 @@ public class categoryController {
     }
 
     @PostMapping("/category/add")
-    public String create(@ModelAttribute("category") categoryModel category) {
+    public String addPost(@ModelAttribute("category") categoryModel category) {
 
         if (this.cateService.create(category)) {
             return "redirect:/admin/category";
         } else {
             return "redirect:/admin/category/add";
         }
+    }
 
+    @GetMapping("/category/edit/{id}")
+    public String edit(Model model, @PathVariable("id") Integer id) {
+        String title = "Chỉnh sửa danh mục sản phẩm";
+        model.addAttribute("title", title);
+        categoryModel data = this.cateService.findById(id);
+        model.addAttribute("category", data);
+
+        return "admin/categoryEdit";
+    }
+
+    @PostMapping("/category/edit/{id}")
+    public String editPost(@ModelAttribute("category") categoryModel category) {
+        if (this.cateService.update(category)) {
+            return "redirect:/admin/category";
+        } else {
+            return "redirect:/admin/category/add";
+        }
     }
 }
