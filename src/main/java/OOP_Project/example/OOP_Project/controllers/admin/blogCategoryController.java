@@ -22,7 +22,7 @@ public class blogCategoryController {
     @GetMapping("/blogCategory")
     public String index(Model model){
         List<blogCategoryModel> records = this.blogCateService.getAllCategories();
-        String title = "Quản lý danh mục sản phẩm";
+        String title = "Quản lý danh mục bài viết";
         model.addAttribute("title",title);
         model.addAttribute("records",records);
         

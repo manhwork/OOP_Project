@@ -2,29 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{admin/base}">
-<head>
-    <title>Quản lý danh mục blog</title>
-    <!-- Liên kết đến CSS và JS ở đây -->
-</head>
-<body>
     <div layout:fragment="base">
-        <!-- Content Header (Page header) -->
         <section class="content-header">
-            <div class="box">
-                <div class="box-body">
+            <div class="box" bis_skin_checked="1">
+                <div class="box-body" bis_skin_checked="1">
                     <a href="/admin/blogCategory/add" class="btn btn-success text-right" style="margin-bottom: 10px">+ Thêm mới</a>
                     <table class="table table-bordered">
-                        <thead>
+                        <tbody>
                             <tr>
                                 <th style="width: 10px">STT</th>
                                 <th>Tên</th>
                                 <th>Trạng thái</th>
                                 <th>Hành Động</th>
                             </tr>
-                        </thead>
-                        <tbody th:if="${records.size() > 0}">
                             <tr th:each="record, index : ${records}">
-                                <td th:text="${index + 1}"></td>
+                                <td th:text="${index.index + 1}"></td>
                                 <td th:text="${record.title}"></td>
                                 <td>
                                     <span th:if="${record.is_active}" class="label label-success">Hoạt động</span>
@@ -39,7 +31,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="box-footer clearfix">
+                <div class="box-footer clearfix" bis_skin_checked="1">
                     <ul class="pagination pagination-sm no-margin pull-right">
                         <li><a href="#">«</a></li>
                         <li><a href="#">1</a></li>
@@ -51,5 +43,4 @@
             </div>
         </section>
     </div>
-</body>
 </html>

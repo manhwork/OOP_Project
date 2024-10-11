@@ -37,16 +37,27 @@ public class blogCategoryModel {
     public blogCategoryModel() {
     }
 
-    public blogCategoryModel(int id, String title, String description, String slug, Date creatAt, Date updateAt, boolean is_active, boolean is_exist) {
+//    public blogCategoryModel(int id, String title, String description, String slug, Date creatAt, Date updateAt, boolean is_active, boolean is_exist) {
+//        this.id = id;
+//        this.title = title;
+//        this.description = description;
+//        this.slug = slug;
+////        this.creatAt = creatAt;
+////        this.updateAt = updateAt;
+//        this.is_active = is_active;
+//        this.is_exist = is_exist;
+//    }
+
+    public blogCategoryModel(int id, String title, String description, String slug, boolean is_active, boolean is_exist) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.slug = slug;
-//        this.creatAt = creatAt;
-//        this.updateAt = updateAt;
         this.is_active = is_active;
         this.is_exist = is_exist;
     }
+    
+    
 
     public int getId() {
         return id;
