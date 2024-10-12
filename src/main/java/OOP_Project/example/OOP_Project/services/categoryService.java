@@ -22,4 +22,6 @@ public interface categoryService {
     Boolean update(categoryModel category);
 
     Boolean delete(categoryModel category);
+
+    List<categoryModel> getItem();
 }

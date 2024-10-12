@@ -2,11 +2,12 @@ package OOP_Project.example.OOP_Project.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+//import jakarta.persistence.GeneratedValue;
+//import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.util.Date;
+import java.util.Random;
 
 @Entity
 @Table(name = "categories")
@@ -14,37 +15,31 @@ public class categoryModel {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id = new Random().nextInt(Integer.MAX_VALUE);
 
     @Column(name = "title")
     private String title;
     @Column(name = "description")
     private String description;
     @Column(name = "is_active")
-    private Boolean is_active;
+    private Boolean is_active = true;
     @Column(name = "slug")
     private String slug;
     @Column(name = "is_exist")
-    private Boolean is_exist;
+    private Boolean is_exist = true;
     @Column(name = "createAt")
-    private Date creatAt;
+    private Date creatAt = new Date();
     @Column(name = "updateAt")
-    private Date updateAt;
+    private Date updateAt = new Date();
 
     public categoryModel() {
-        // TODO Auto-generated constructor stub
     }
 
-    public categoryModel(Integer id, String title, String description, Boolean is_active, String slug, Boolean is_exist, Date creatAt, Date updateAt) {
-        this.id = id;
+    public categoryModel(String title, String description, String slug) {
         this.title = title;
         this.description = description;
-        this.is_active = is_active;
         this.slug = slug;
-        this.is_exist = is_exist;
-        this.creatAt = creatAt;
-        this.updateAt = updateAt;
     }
 
     public Integer getId() {
@@ -111,4 +106,5 @@ public class categoryModel {
         this.updateAt = updateAt;
     }
 
+    
 }

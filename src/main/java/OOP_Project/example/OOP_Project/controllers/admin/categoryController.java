@@ -1,4 +1,3 @@
-
 package OOP_Project.example.OOP_Project.controllers.admin;
 
 import OOP_Project.example.OOP_Project.models.categoryModel;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 @Controller
 @RequestMapping("/admin")
 public class categoryController {
@@ -23,8 +21,8 @@ public class categoryController {
 
     @GetMapping("/category")
     public String index(Model model) {
-        List<categoryModel> records = this.cateService.getAll();
-        String title = "Quản lý danh mục sản phẩm   ";
+        List<categoryModel> records = this.cateService.getItem();
+        String title = "Quản lý danh mục sản phẩm";
         model.addAttribute("title", title);
         model.addAttribute("records", records);
 
@@ -41,7 +39,6 @@ public class categoryController {
 
     @PostMapping("/category/add")
     public String addPost(@ModelAttribute("category") categoryModel category) {
-
         if (this.cateService.create(category)) {
             return "redirect:/admin/category";
         } else {
@@ -60,11 +57,21 @@ public class categoryController {
     }
 
     @PostMapping("/category/edit/{id}")
-    public String editPost(@ModelAttribute("category") categoryModel category) {
+    public String editPost(@ModelAttribute("category") categoryModel category, @PathVariable("id") Integer id) {
         if (this.cateService.update(category)) {
             return "redirect:/admin/category";
         } else {
-            return "redirect:/admin/category/add";
+            return "redirect:/admin/category/edit/" + id;
         }
+    }
+
+    @PostMapping("/category/delete/{id}")
+    public String delete(@PathVariable("id") Integer id) {
+        categoryModel category = this.cateService.findById(id);
+        if (category != null) {
+            category.setIs_exist(false);
+            this.cateService.update(category);
+        }
+        return "redirect:/admin/category";
     }
 }
