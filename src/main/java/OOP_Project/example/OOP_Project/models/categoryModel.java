@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 //import jakarta.persistence.GeneratedValue;
 //import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import java.util.Date;
 import java.util.Random;
@@ -56,6 +57,8 @@ public class categoryModel {
 
     public void setTitle(String title) {
         this.title = title;
+//        thêm slug khi update 
+        generateSlug();
     }
 
     public String getDescription() {
@@ -105,6 +108,16 @@ public class categoryModel {
     public void setUpdateAt(Date updateAt) {
         this.updateAt = updateAt;
     }
-
     
+//    hàm tạo slug tự động
+    public void generateSlug() {
+        if (this.title != null) {
+            this.slug = this.title.trim().toLowerCase().replaceAll("\\s+", "-");
+        }
+    }
+
+    @PrePersist
+    protected void createOn() {
+        generateSlug();
+    }
 }
