@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/base}">
+      <div layout:fragment="base">
+        <div class="box box-primary" bis_skin_checked="1">
+      
+          <form role="form" th:action="@{'/admin/author/edit/' + ${id}}" th:object="${author}" method="post">
+            <input th:field="*{id}" type="hidden" class="form-control">
+      
+            <div class="box-body">
+              <div class="form-group">
+                <label for="title">Tiêu đề</label>
+                <input th:field="*{title}" type="text" class="form-control" id="title" placeholder="Nhập tiêu đề">
+              </div>
+              <div class="form-group">
+                <label for="description">Mô tả</label>
+                <input th:field="*{description}" type="text" class="form-control" id="description" placeholder="Nhập mô tả">
+              </div>
+              <div class="form-group d-flex justify-content-center align-items-center">
+                <label for="active">Hoạt động</label>
+                <input th:field="*{is_active}" id="active" style="margin-right: 10px" type="radio" value="1">
+                <label for="inactive">Dừng hoạt động</label>
+                <input th:field="*{is_active}" id="inactive" type="radio" value="0">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputFile">Ảnh</label>
+                <input type="file" id="exampleInputFile">
+                <p class="help-block">Example block-level help text here.</p>
+              </div>
+            </div>
+      
+            <div class="box-footer">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+</html>
