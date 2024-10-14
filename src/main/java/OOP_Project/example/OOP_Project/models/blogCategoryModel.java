@@ -2,8 +2,9 @@
 package OOP_Project.example.OOP_Project.models;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 @Entity
 @Table(name="blog_category")
 public class blogCategoryModel {
@@ -19,46 +20,39 @@ public class blogCategoryModel {
     @Column(name ="slug")
     private String slug;
     
-//   @Temporal(TemporalType.TIMESTAMP)
-//@Column(name = "create_at")
-//private Date creatAt;
-//
-//@Temporal(TemporalType.TIMESTAMP)
-//@Column(name = "update_at")
-//private Date updateAt;
-
+  
+     @Column(name = "createAt")
+    private Date createAt = new Date() ;
+    
+    @Column(name = "updateAt")
+    private Date updateAt = new Date();
     
     @Column(name = "is_active")
-    private boolean is_active;
+    private Boolean is_active = true;
     
     @Column(name = "is_exist")
-    private boolean is_exist;
+    private Boolean is_exist = true;
+    
+    @OneToMany(mappedBy = "blogCategory", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<BlogModel> blogs = new HashSet<>();
 
     public blogCategoryModel() {
     }
 
-//    public blogCategoryModel(int id, String title, String description, String slug, Date creatAt, Date updateAt, boolean is_active, boolean is_exist) {
-//        this.id = id;
-//        this.title = title;
-//        this.description = description;
-//        this.slug = slug;
-////        this.creatAt = creatAt;
-////        this.updateAt = updateAt;
-//        this.is_active = is_active;
-//        this.is_exist = is_exist;
-//    }
-
-    public blogCategoryModel(int id, String title, String description, String slug, boolean is_active, boolean is_exist) {
-        this.id = id;
+    public blogCategoryModel(String title, String description, String slug) {
         this.title = title;
         this.description = description;
         this.slug = slug;
-        this.is_active = is_active;
-        this.is_exist = is_exist;
+    }
+
+    public Set<BlogModel> getBlogs() {
+        return blogs;
+    }
+
+    public void setBlogs(Set<BlogModel> blogs) {
+        this.blogs = blogs;
     }
     
-    
-
     public int getId() {
         return id;
     }
@@ -73,6 +67,7 @@ public class blogCategoryModel {
 
     public void setTitle(String title) {
         this.title = title;
+        generateSlug();
     }
 
     public String getDescription() {
@@ -91,39 +86,55 @@ public class blogCategoryModel {
         this.slug = slug;
     }
 
-//    public Date getCreatAt() {
-//        return creatAt;
-//    }
-//
-//    public void setCreatAt(Date creatAt) {
-//        this.creatAt = creatAt;
-//    }
-//
-//    public Date getUpdateAt() {
-//        return updateAt;
-//    }
-//
-//    public void setUpdateAt(Date updateAt) {
-//        this.updateAt = updateAt;
-//    }
+    public Date getCreateAt() {
+        return createAt;
+    }
 
-    public boolean isIs_active() {
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
+    }
+
+    public Date getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(Date updateAt) {
+        this.updateAt = updateAt;
+    }
+
+    public Boolean getIs_active() {
         return is_active;
     }
 
-    public void setIs_active(boolean is_active) {
+    public void setIs_active(Boolean is_active) {
         this.is_active = is_active;
     }
 
-    public boolean isIs_exist() {
+    public Boolean getIs_exist() {
         return is_exist;
     }
 
-    public void setIs_exist(boolean is_exist) {
+    public void setIs_exist(Boolean is_exist) {
         this.is_exist = is_exist;
     }
+    
+    public void generateSlug() {
+        if (this.title != null) {
+            this.slug = this.title.trim().toLowerCase().replaceAll("\\s+", "-");
+        }
+    }
 
+    @PrePersist
+    protected void createOn() {
+        generateSlug();
+       
+    }
+    
+    public void addBlog(BlogModel blog) {
+        blogs.add(blog);
+        blog.setBlogCategory(this);
+    }
     
     
-    
+
 }

@@ -12,27 +12,50 @@ public class blogCateServiceImpl implements blogCateService {
    @Autowired
    private blogCateRepository blogCateRepository;
    
+   
+
    @Override
-   public List<blogCategoryModel> getAllCategories() {
-       return blogCateRepository.findAll();
+   public List<blogCategoryModel> getAllblogCategories() {
+       return blogCateRepository.find();
    }
 
    @Override
-   public blogCategoryModel getCategoryById(int id) {
-       return blogCateRepository.findById(id).orElse(null);
+   public blogCategoryModel getblogCategoryById(Integer id) {
+       return blogCateRepository.findById(id).get();
    }
 
    @Override
-   public blogCategoryModel saveCategory(blogCategoryModel blogCategory) {
+   public blogCategoryModel saveblogCategory(blogCategoryModel blogCategory) {
        return blogCateRepository.save(blogCategory); // Đảm bảo phương thức lưu dữ liệu
    }
 
    @Override
-   public void deleteCategory(int id) {
-       blogCateRepository.deleteById(id);
-   }
-   @Override
+    public Boolean delete(blogCategoryModel blogCategory) {
+        try {
+            blogCategory.setIs_exist(Boolean.FALSE);
+            this.blogCateRepository.save(blogCategory);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    @Override
     public Boolean create(blogCategoryModel blogCategory) {
+        try {
+            if(!blogCateRepository.existsById(blogCategory.getId())){
+                this.blogCateRepository.save(blogCategory);
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+    @Override
+    public Boolean update(blogCategoryModel blogCategory) {
         try {
             this.blogCateRepository.save(blogCategory);
             return true;

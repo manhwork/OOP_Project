@@ -25,7 +25,11 @@
                                 <td>
                                     <a th:href="@{'/admin/blogCategory/detail/' + ${record.id}}" class=""><span class="label label-default">Chi tiết</span></a>
                                     <a th:href="@{'/admin/blogCategory/edit/' + ${record.id}}" class=""><span class="label label-info">Sửa</span></a>
-                                    <a th:href="@{'/admin/blogCategory/delete/' + ${record.id}}" class=""><span class="label label-danger">Xoá</span></a>
+                                    <form th:action="@{'/admin/blogCategory/delete/' + ${record.id}}" method="post" style="display:inline;">
+                                        <button type="submit" class="btn btn-link" style="padding: 0; border: none; background: none;">
+                                            <span class="label label-danger">Xoá</span>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         </tbody>
