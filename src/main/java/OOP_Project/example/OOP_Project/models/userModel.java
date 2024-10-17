@@ -37,12 +37,12 @@ public class userModel {
         // TODO Auto-generated constructor stub
     }
 
-    public userModel(Integer id, String name, String email, Boolean is_active, String address, Boolean is_exist, Date creatAt, Date updateAt) {
+    public userModel(Integer id, String name, String email, String phone, Boolean is_active, Boolean is_exist, Date creatAt, Date updateAt) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.is_active = is_active;
         this.phone = phone;
+        this.is_active = is_active;
         this.is_exist = is_exist;
         this.creatAt = creatAt;
         this.updateAt = updateAt;

@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 import java.util.Date;
 
 @Entity
-@Table(name = "authur")
+@Table(name = "author")
 
 public class authorModel {
 
