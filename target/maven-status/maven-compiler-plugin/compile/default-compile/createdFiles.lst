@@ -5,6 +5,7 @@ OOP_Project\example\OOP_Project\services\blogService.class
 OOP_Project\example\OOP_Project\controllers\admin\adminController.class
 OOP_Project\example\OOP_Project\services\implement\blogCateServiceImpl.class
 OOP_Project\example\OOP_Project\controllers\admin\categoryController.class
+OOP_Project\example\OOP_Project\services\StorageService.class
 OOP_Project\example\OOP_Project\controllers\admin\blogCategoryController.class
 OOP_Project\example\OOP_Project\services\implement\categoryServiceImpl.class
 OOP_Project\example\OOP_Project\repository\categoryRepository.class

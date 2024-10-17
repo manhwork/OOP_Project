@@ -18,7 +18,9 @@
                             </tr>
                             <tr th:each="record, index : ${records}">
                                 <td th:text="${index.index + 1}"></td>
-                                <td>Hình ảnh minh họa</td>
+                                <td>
+                                    <img th:src="@{'/media/' + ${record.image}}" alt="Hình ảnh minh họa" width="100" height="50">
+                                </td>
                                 <td th:text="${record.title}"></td>
                                 
                                 <td>

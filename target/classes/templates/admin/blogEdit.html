@@ -5,7 +5,7 @@
     <div layout:fragment="base">
         <div class="box box-primary" bis_skin_checked="1">
 
-            <form role="form" th:action="@{'/admin/blog/edit/' + ${id}}" th:object="${blog}" method="post">
+            <form role="form" th:action="@{'/admin/blog/edit/' + ${id}}" th:object="${blog}" method="post" enctype="multipart/form-data">
                 <input th:field="*{id}" type="hidden" class="form-control">
 
                 <div class="box-body">
@@ -22,6 +22,10 @@
                         <input th:field="*{is_active}" id="active" style="margin-right: 10px" type="radio" value="1">
                         <label for="inactive">Dừng hoạt động</label>
                         <input th:field="*{is_active}" id="inactive" type="radio" value="0">
+                    </div>
+                    <div class="form-group" bis_skin_checked="1">
+                        <label for="file">Ảnh :</label>
+                        <input type="file"  name="file" id="file"/>
                     </div>
                 </div>
 

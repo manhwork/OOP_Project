@@ -18,8 +18,8 @@ public class BlogModel {
     private String description;
     @Column(name = "slug")
     private String slug;
-//    @Column(name = "img")
-//    private String image;
+    @Column(name = "img")
+    private String image;
     
     @Column(name = "createAt")
     private Date createAt = new Date() ;
@@ -37,11 +37,11 @@ public class BlogModel {
     @JoinColumn(name="blogCate_id",referencedColumnName="id", nullable = true) //đang xem trường hợp nullable = false
     private blogCategoryModel blogCategory;
 
-    public BlogModel(String title, String description, String slug) {
+    public BlogModel(String title, String description,String image, String slug) {
         this.title = title;
         this.description = description;
         this.slug = slug;
-        
+        this.image = image;
     }
 
     
@@ -83,13 +83,13 @@ public class BlogModel {
         this.slug = slug;
     }
 
-//    public String getImage() {
-//        return image;
-//    }
-//
-//    public void setImage(String image) {
-//        this.image = image;
-//    }
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public Date getCreateAt() {
         return createAt;
