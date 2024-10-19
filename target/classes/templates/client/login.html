@@ -3,14 +3,54 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{client/base}">
     <div layout:fragment="base">
-       
-      
+
         <head>
             <title>Login</title>
-            <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.0.8/css/all.css}"> 
+            <!-- Link external CSS -->
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"/>
             <link rel="stylesheet" th:href="@{/assets/pages/login/style.css}" />
         </head>
+
         <body>
-           
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                    <img src="https://websitedemos.net/book-store-02/wp-content/uploads/sites/834/2021/04/site-logo.svg" alt="Logo">
+                </a>
+            </nav>
+            <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+                <aside class="col-sm-4">
+                    <div class="card">
+                        <article class="card-body">
+                            <a th:href="@{/client/sign_up.html}" class="float-right btn btn-outline-primary">Sign up</a>
+                            <h4 class="card-title text-center mb-4 mt-1">Sign in</h4>
+                            <hr>
+                            <!-- Form -->
+                            <form action="#" th:action="@{/login}" method="post">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                        </div>
+                                        <input name="username" class="form-control" placeholder="Email or login" type="email" required>
+                                    </div> <!-- input-group.// -->
+                                </div> <!-- form-group// -->
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                        </div>
+                                        <input name="password" class="form-control" placeholder="******" type="password" required>
+                                    </div> <!-- input-group.// -->
+                                </div> <!-- form-group// -->
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block"> Login </button>
+                                </div> <!-- form-group// -->
+                                <p class="text-center"><a href="#" class="btn">Forgot password?</a></p>
+                            </form>
+                        </article>
+                    </div> <!-- card.// -->
+                </aside> <!-- col.// -->
+            </div> <!-- d-flex.// -->
         </body>
+    </div>
 </html>
