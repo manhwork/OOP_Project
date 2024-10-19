@@ -1,11 +1,8 @@
 package OOP_Project.example.OOP_Project.controllers.admin;
 
 import OOP_Project.example.OOP_Project.models.BlogModel;
-import OOP_Project.example.OOP_Project.models.blogCategoryModel;
 import OOP_Project.example.OOP_Project.services.StorageService;
-import OOP_Project.example.OOP_Project.services.blogCateService;
 import OOP_Project.example.OOP_Project.services.blogService;
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -57,8 +54,8 @@ public class blogController {
     public String create(@ModelAttribute("blog") BlogModel blog, @RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
 
         if (!file.isEmpty()) {
-//            storageService.store(file);
-//            blog.setImage(file.getOriginalFilename());
+            storageService.store(file);
+            blog.setImage(file.getOriginalFilename());
             try {
                 storageService.store(file);
                 blog.setImage(file.getOriginalFilename());
@@ -98,20 +95,13 @@ public class blogController {
             if (oldImagePath != null && !oldImagePath.isEmpty()) {
                 Path oldImage = storageService.load(oldImagePath);
                 try {
-//                    Files.deleteIfExists(oldImage);
+                    Files.deleteIfExists(oldImage);
                     Files.deleteIfExists(storageService.load(oldImagePath));
                 } catch (IOException e) {
-//                    e.printStackTrace();
+                    e.printStackTrace();
                     redirectAttributes.addFlashAttribute("message", "Lỗi khi xóa ảnh cũ: " + e.getMessage());
                 }
             }
-            // Lưu ảnh mới
-
-//            storageService.store(file);
-//            blog.setImage(file.getOriginalFilename());
-//        } else {
-//            blog.setImage(existingBook.getImage());
-//        }
             try {
                 storageService.store(file);
                 blog.setImage(file.getOriginalFilename());

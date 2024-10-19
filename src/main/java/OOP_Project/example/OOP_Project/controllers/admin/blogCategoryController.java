@@ -31,7 +31,7 @@ public class blogCategoryController {
     }
     @GetMapping("/blogCategory/add")
     public String add(Model model){
-        String title = "Thêm mới danh mục sản phẩm";
+        String title = "Thêm mới danh mục bài viết";
         model.addAttribute("title",title);
         model.addAttribute("blogCategory", new blogCategoryModel());
         return "admin/blogCategoryAdd";
@@ -48,7 +48,7 @@ public class blogCategoryController {
     // Chức năng sửa
     @GetMapping("/blogCategory/edit/{id}")
     public String edit(Model model, @PathVariable("id") Integer id){
-        String title = "Chỉnh sửa danh mục sản phẩm";
+        String title = "Chỉnh sửa danh mục bài viết";
         model.addAttribute("title",title);
         blogCategoryModel data = this.blogCateService.getblogCategoryById(id);
         if (data == null) {
