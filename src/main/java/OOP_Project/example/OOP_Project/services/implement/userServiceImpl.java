@@ -1,5 +1,6 @@
 package OOP_Project.example.OOP_Project.services.implement;
 
+import OOP_Project.example.OOP_Project.models.categoryModel;
 import OOP_Project.example.OOP_Project.models.userModel;
 import OOP_Project.example.OOP_Project.repository.userRepository;
 import OOP_Project.example.OOP_Project.services.userService;
@@ -24,7 +25,7 @@ public class userServiceImpl implements userService {
 
     @Override
     public List<userModel> getItem() {
-        return this.userRepository.findAll();
+        return this.userRepository.find();
     }
 
     @Override

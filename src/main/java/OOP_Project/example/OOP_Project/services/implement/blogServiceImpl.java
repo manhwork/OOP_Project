@@ -14,25 +14,53 @@ public class blogServiceImpl implements blogService {
     
     @Override
     public List<BlogModel> getAllBlogs() {
-        return blogRepository.findAll();
+        return blogRepository.find();
     }
     @Override
-    public BlogModel getBlogById(int id) {
-        return blogRepository.findById(id).orElse(null);
+    public BlogModel getBlogById(Integer id) {
+        return blogRepository.findById(id).get();
     }
     @Override
     public BlogModel saveBlog(BlogModel blog){
         return blogRepository.save(blog);
     }
+    
     @Override
-    public void deleteBlog(int id){
-        blogRepository.deleteById(id);
+    public List<BlogModel> getItem(){
+        return this.blogRepository.find();
     }
+    
+    // Update
     @Override
-    public Boolean create(BlogModel blog) {
+    public Boolean update(BlogModel blog) {
         try {
             this.blogRepository.save(blog);
             return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    // Xóa
+    @Override
+    public Boolean delete(BlogModel blog) {
+        try {
+            blog.setIs_exist(Boolean.FALSE);
+            this.blogRepository.save(blog);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    // Tạo mới
+    @Override
+    public Boolean create(BlogModel blog) {
+        try {
+            if(!blogRepository.existsById(blog.getId())){
+                this.blogRepository.save(blog);
+                return true;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

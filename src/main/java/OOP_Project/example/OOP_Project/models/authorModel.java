@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.util.Date;
+import java.util.Random;
 
 @Entity
 @Table(name = "author")
@@ -16,23 +17,23 @@ public class authorModel {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id= new Random().nextInt(Integer.MAX_VALUE);;
 
     @Column(name = "name")
     private String name;
     @Column(name = "age")
     private Integer age;
     @Column(name = "is_active")
-    private Boolean is_active;
+    private Boolean is_active = true;
     @Column(name = "address")
     private String address;
     @Column(name = "is_exist")
-    private Boolean is_exist;
+    private Boolean is_exist = true;
     @Column(name = "createAt")
-    private Date creatAt;
+    private Date creatAt = new Date();
     @Column(name = "updateAt")
-    private Date updateAt;
+    private Date updateAt = new Date();
 
     public authorModel() {
         // TODO Auto-generated constructor stub

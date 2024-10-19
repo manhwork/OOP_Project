@@ -4,7 +4,7 @@
       layout:decorate="~{admin/base}">
     <div layout:fragment="base">
         <div class="box box-primary" bis_skin_checked="1">
-            <form role="form" th:action="@{/admin/blogCategory/add}" th:object="${blogCategory}" method="post" enctype="multipart/form-data">
+            <form role="form" th:action="@{/admin/blogCategory/add}" th:object="${blogCategory}" method="post">
                 <div class="box-body" bis_skin_checked="1">
                     <div class="form-group" bis_skin_checked="1">
                         <label for="title">Tiêu đề</label>
@@ -15,13 +15,10 @@
                         <textarea th:field="*{description}" class="form-control" id="description" placeholder="Nhập mô tả"></textarea>
                     </div>
                     <div class="form-group" bis_skin_checked="1">
-                        <label for="slug">Slug</label>
-                        <input th:field="*{slug}" type="text" class="form-control" id="slug" placeholder="Nhập slug">
-                    </div>
-                    <div class="form-group" bis_skin_checked="1">
                         <label for="active">Hoạt động</label>
-                        <input checked='true' th:field="*{is_active}" id="active" style="margin-right: 10px" type="radio" name="is_active" value="1"> Hoạt động
-                        <input th:field="*{is_active}" id="inactive" type="radio" name="is_active" value="0"> Dừng hoạt động
+                        <input checked='true' th:field="*{is_active}" id="active" style="margin-right: 10px" type="radio" name="is_active" value="1">
+                        <label>Dừng hoạt động</label>
+                        <input th:field="*{is_active}" id="inactive" type="radio" name="is_active" value="0"> 
                     </div>
                 </div>
                 <div class="box-footer" bis_skin_checked="1">
