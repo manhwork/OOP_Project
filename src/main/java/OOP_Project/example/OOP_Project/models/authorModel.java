@@ -1,24 +1,22 @@
 package OOP_Project.example.OOP_Project.models;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.util.Date;
 import java.util.Random;
 
 @Entity
-@Table(name = "authur")
+@Table(name = "author")
 
 public class authorModel {
 
     @Id
     @Column(name = "id")
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id= new Random().nextInt(Integer.MAX_VALUE);;
+    private Integer id = new Random().nextInt(Integer.MAX_VALUE);
+    ;
 
     @Column(name = "name")
     private String name;
@@ -34,6 +32,16 @@ public class authorModel {
     private Date creatAt = new Date();
     @Column(name = "updateAt")
     private Date updateAt = new Date();
+    @Column(name = "image")
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public authorModel() {
         // TODO Auto-generated constructor stub
@@ -115,6 +123,3 @@ public class authorModel {
     }
 
 }
-
-
-
