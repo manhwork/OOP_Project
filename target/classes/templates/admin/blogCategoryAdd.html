@@ -4,7 +4,7 @@
       layout:decorate="~{admin/base}">
     <div layout:fragment="base">
         <div class="box box-primary" bis_skin_checked="1">
-            <form role="form" th:action="@{/admin/blogCategory/add}" th:object="${blogCategory}" method="post" enctype="multipart/form-data">
+            <form role="form" th:action="@{/admin/blogCategory/add}" th:object="${blogCategory}" method="post">
                 <div class="box-body" bis_skin_checked="1">
                     <div class="form-group" bis_skin_checked="1">
                         <label for="title">Tiêu đề</label>
