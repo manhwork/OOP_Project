@@ -1,4 +1,5 @@
 OOP_Project\example\OOP_Project\controllers\client\SignInCtrl.class
+OOP_Project\example\OOP_Project\controllers\client\ShoppingCartCtrl.class
 OOP_Project\example\OOP_Project\OopProjectApplication.class
 OOP_Project\example\OOP_Project\models\categoryModel.class
 OOP_Project\example\OOP_Project\services\categoryService.class

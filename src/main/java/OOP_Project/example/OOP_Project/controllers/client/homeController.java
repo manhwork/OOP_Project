@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author MTQV
  */
 @Controller
-@RequestMapping("/client")
+
 public class homeController {
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String home(ModelMap model) {
         model.addAttribute("pageTitle","Home");
         return "client/home.html";
