@@ -35,7 +35,7 @@ public class BlogModel {
     private Boolean is_exist = true;
 
     @ManyToOne
-    @JoinColumn(name = "blogCate_id", referencedColumnName = "id", nullable = true) //đang xem trường hợp nullable = false
+    @JoinColumn(name = "blogCate", referencedColumnName = "id", nullable = true) //đang xem trường hợp nullable = false
     private blogCategoryModel blogCategory;
 
     public BlogModel(String title, String description, String image, String slug) {

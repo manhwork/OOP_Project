@@ -1,7 +1,9 @@
 package OOP_Project.example.OOP_Project.controllers.admin;
 
 import OOP_Project.example.OOP_Project.models.BlogModel;
+import OOP_Project.example.OOP_Project.models.blogCategoryModel;
 import OOP_Project.example.OOP_Project.services.StorageService;
+import OOP_Project.example.OOP_Project.services.blogCateService;
 import OOP_Project.example.OOP_Project.services.blogService;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -32,6 +34,9 @@ public class blogController {
     @Autowired
     private StorageService storageService;
 
+    @Autowired
+    private blogCateService blogCateService;
+
     @GetMapping("/blog")
     public String index(Model model) {
         List<BlogModel> records = this.blogService.getAllBlogs(); //Lấy danh sách các bài viết
@@ -46,6 +51,8 @@ public class blogController {
         String title = "Thêm mới bài viết";
         model.addAttribute("title", title);
         model.addAttribute("blog", new BlogModel()); // Tạo đối tượng BlogModel mới
+        List<blogCategoryModel> categories = this.blogCateService.getAllblogCategories();
+        model.addAttribute("categories", categories);
         return "admin/blogAdd";// Trả về view thêm mới BlogModel
     }
 
@@ -75,6 +82,8 @@ public class blogController {
     // Chức năng sửa
     @GetMapping("/blog/edit/{id}")
     public String edit(Model model, @PathVariable("id") Integer id) {
+        List<blogCategoryModel> categories = this.blogCateService.getAllblogCategories();
+        model.addAttribute("categories", categories);
         String title = "Chỉnh sửa danh mục sản phẩm";
         model.addAttribute("title", title);
         BlogModel blog = this.blogService.getBlogById(id);
