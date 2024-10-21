@@ -20,4 +20,7 @@ public interface bookRepository extends JpaRepository<bookModel, Integer> {
 
     bookModel findBySlug(String slug);
 
+    @Query("SELECT b FROM bookModel b WHERE b.is_outstanding = true AND b.is_exist = true")
+    List<bookModel> findOS();
+
 }

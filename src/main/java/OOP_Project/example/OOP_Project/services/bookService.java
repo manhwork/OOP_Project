@@ -25,5 +25,7 @@ public interface bookService {
 
     List<bookModel> getItem();
 
+    List<bookModel> getItemOS();
+
     bookModel getItemSlug(String slug);
 }

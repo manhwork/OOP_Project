@@ -17,15 +17,15 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class bookServiceImpl implements bookService {
-    
+
     @Autowired
     private bookRepository bookRepository;
-    
+
     @Override
     public List<bookModel> getAll() {
         return this.bookRepository.findAll();
     }
-    
+
     @Override
     public Boolean create(bookModel book) {
         try {
@@ -36,12 +36,12 @@ public class bookServiceImpl implements bookService {
             return false;
         }
     }
-    
+
     @Override
     public bookModel findById(Integer id) {
         return this.bookRepository.findById(id).get();
     }
-    
+
     @Override
     public Boolean update(bookModel book) {
         try {
@@ -52,7 +52,7 @@ public class bookServiceImpl implements bookService {
         }
         return false;
     }
-    
+
     @Override
     public Boolean delete(bookModel book) {
         try {
@@ -64,14 +64,19 @@ public class bookServiceImpl implements bookService {
             return false;
         }
     }
-    
+
     @Override
     public List<bookModel> getItem() {
         return this.bookRepository.find();
     }
-    
+
     @Override
     public bookModel getItemSlug(String slug) {
         return this.bookRepository.findBySlug(slug);
+    }
+
+    @Override
+    public List<bookModel> getItemOS() {
+        return this.bookRepository.findOS();
     }
 }
