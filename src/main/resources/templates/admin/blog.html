@@ -11,15 +11,15 @@
                         <tbody>
                             <tr>
                                 <th style="width: 10px">STT</th>
-                                <th>Tên</th>
                                 <th>Hình ảnh</th>
+                                <th>Tên</th>
                                 <th>Trạng thái</th>
                                 <th>Hành Động</th>
                             </tr>
                             <tr th:each="record, index : ${records}">
                                 <td th:text="${index.index + 1}"></td>
                                 <td>
-                                    <img th:src="@{'/media/' + ${record.image}}" alt="Hình ảnh minh họa" width="100" height="50">
+                                    <img th:src="@{'/uploads/' + ${record.image}}" alt="Hình ảnh minh họa" width="100" height="50">
                                 </td>
                                 <td th:text="${record.title}"></td>
                                 

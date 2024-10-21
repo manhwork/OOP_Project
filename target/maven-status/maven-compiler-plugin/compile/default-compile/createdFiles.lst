@@ -1,9 +1,7 @@
-OOP_Project\example\OOP_Project\controllers\client\SignInCtrl.class
 OOP_Project\example\OOP_Project\controllers\client\ShoppingCartCtrl.class
 OOP_Project\example\OOP_Project\OopProjectApplication.class
 OOP_Project\example\OOP_Project\models\categoryModel.class
 OOP_Project\example\OOP_Project\services\categoryService.class
-OOP_Project\example\OOP_Project\controllers\client\SignUpCtrl.class
 OOP_Project\example\OOP_Project\services\blogService.class
 OOP_Project\example\OOP_Project\controllers\admin\adminController.class
 OOP_Project\example\OOP_Project\services\implement\blogCateServiceImpl.class
@@ -14,6 +12,7 @@ OOP_Project\example\OOP_Project\controllers\admin\blogCategoryController.class
 OOP_Project\example\OOP_Project\services\implement\categoryServiceImpl.class
 OOP_Project\example\OOP_Project\repository\categoryRepository.class
 OOP_Project\example\OOP_Project\controllers\admin\blogController.class
+OOP_Project\example\OOP_Project\config\WebConfig.class
 OOP_Project\example\OOP_Project\controllers\client\homeController.class
 OOP_Project\example\OOP_Project\controllers\client\BooksCtrl.class
 OOP_Project\example\OOP_Project\controllers\client\BlogCtrl.class
@@ -24,3 +23,4 @@ OOP_Project\example\OOP_Project\controllers\client\AboutAuthorCtrl.class
 OOP_Project\example\OOP_Project\repository\blogCateRepository.class
 OOP_Project\example\OOP_Project\models\BlogModel.class
 OOP_Project\example\OOP_Project\models\blogCategoryModel.class
+OOP_Project\example\OOP_Project\controllers\admin\BlogApiController.class
