@@ -24,7 +24,7 @@ public class authorServiceImpl implements authorService {
 
     @Override
     public List<authorModel> getItem() {
-        return this.authorRepository.findAll();
+        return this.authorRepository.find();
     }
 
     @Override

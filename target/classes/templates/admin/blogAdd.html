@@ -11,22 +11,29 @@
                         <input th:field="*{title}" type="text" class="form-control" id="title" placeholder="Nhập tiêu đề">
                     </div>
                     <div class="form-group" bis_skin_checked="1">
+                        <label for="category">Danh mục bài viết</label>
+                        <select class="form-control" th:field="*{blogCategory.id}" id="category">
+                            <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.title}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group" bis_skin_checked="1">
                         <label for="description">Mô tả</label>
                         <textarea th:field="*{description}" class="form-control" id="description" placeholder="Nhập mô tả"></textarea>
                     </div>
-                    <div class="form-group" bis_skin_checked="1">
-                        <label for="slug">Slug</label>
-                        <input th:field="*{slug}" type="text" class="form-control" id="slug" placeholder="Nhập slug">
-                    </div>
+                    <!--                    <div class="form-group" bis_skin_checked="1">
+                                            <label for="slug">Slug</label>
+                                            <input th:field="*{slug}" type="text" class="form-control" id="slug" placeholder="Nhập slug">
+                                        </div>-->
                     <div class="form-group" bis_skin_checked="1">
                         <label for="active">Hoạt động</label>
                         <input checked='true' th:field="*{is_active}" id="active" style="margin-right: 10px" type="radio" name="is_active" value="1"> Hoạt động
                         <input th:field="*{is_active}" id="inactive" type="radio" name="is_active" value="0"> Dừng hoạt động
                     </div>
                     <div class="form-group" bis_skin_checked="1">
-                        <label for="image">Ảnh</label>
-                        <input type="file" id="image" th:field="*{image}" class="form-control">
-                        <p class="help-block">Tải lên ảnh minh hoạ cho bài viết.</p>
+                        <label for="file">Ảnh </label>
+                        <input type="file" name="file" id="file">
+
+                        <p  class="help-block">Example block-level help text here.</p>
                     </div>
                 </div>
 

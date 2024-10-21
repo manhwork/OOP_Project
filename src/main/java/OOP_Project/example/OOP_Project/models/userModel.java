@@ -2,11 +2,10 @@ package OOP_Project.example.OOP_Project.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.util.Date;
+import java.util.Random;
 
 @Entity
 @Table(name = "user")
@@ -15,37 +14,35 @@ public class userModel {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id = new Random().nextInt(Integer.MAX_VALUE);
+    ;
 
     @Column(name = "name")
     private String name;
     @Column(name = "email")
     private String email;
     @Column(name = "is_active")
-    private Boolean is_active;
+    private Boolean is_active = true;
     @Column(name = "phone")
     private String phone;
     @Column(name = "is_exist")
-    private Boolean is_exist;
+    private Boolean is_exist = true;
     @Column(name = "createAt")
-    private Date creatAt;
+    private Date creatAt = new Date();
     @Column(name = "updateAt")
-    private Date updateAt;
+    private Date updateAt = new Date();
+    @Column(name = "image")
+    private String image;
 
     public userModel() {
         // TODO Auto-generated constructor stub
     }
 
-    public userModel(Integer id, String name, String email, Boolean is_active, String address, Boolean is_exist, Date creatAt, Date updateAt) {
-        this.id = id;
+    public userModel(String name, String email, String phone) {
         this.name = name;
         this.email = email;
-        this.is_active = is_active;
         this.phone = phone;
-        this.is_exist = is_exist;
-        this.creatAt = creatAt;
-        this.updateAt = updateAt;
     }
 
     public Integer getId() {
@@ -68,7 +65,7 @@ public class userModel {
         return email;
     }
 
-    public void setDescription(String description) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
@@ -108,9 +105,16 @@ public class userModel {
         return updateAt;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public void setUpdateAt(Date updateAt) {
         this.updateAt = updateAt;
     }
-
 
 }

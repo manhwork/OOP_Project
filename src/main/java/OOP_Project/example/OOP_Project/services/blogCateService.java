@@ -5,10 +5,15 @@ import OOP_Project.example.OOP_Project.models.blogCategoryModel;
 import java.util.List;
 
 public interface blogCateService {
-    List<blogCategoryModel> getAllCategories();
-    blogCategoryModel getCategoryById(int id);
-    blogCategoryModel saveCategory(blogCategoryModel blogCategory);
-    void deleteCategory(int id);
+    List<blogCategoryModel> getAllblogCategories();
+
+    blogCategoryModel getblogCategoryById(Integer id);
+
+    blogCategoryModel saveblogCategory(blogCategoryModel blogCategory);
+
+    Boolean delete (blogCategoryModel blogCategory);
 
     Boolean create(blogCategoryModel blogCategory);
+
+    Boolean update (blogCategoryModel blogCategory);
 }

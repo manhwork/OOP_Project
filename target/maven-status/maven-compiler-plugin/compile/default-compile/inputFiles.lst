@@ -2,7 +2,14 @@ C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\cont
 C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\admin\blogCategoryController.java
 C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\admin\blogController.java
 C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\admin\categoryController.java
+C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\client\AboutAuthorCtrl.java
+C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\client\BlogCtrl.java
+C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\client\BooksCtrl.java
+C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\client\ContactCtrl.java
 C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\client\homeController.java
+C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\client\ShoppingCartCtrl.java
+C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\client\SignInCtrl.java
+C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\client\SignUpCtrl.java
 C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\models\blogCategoryModel.java
 C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\models\BlogModel.java
 C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\models\categoryModel.java
@@ -16,3 +23,4 @@ C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\serv
 C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\services\implement\blogCateServiceImpl.java
 C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\services\implement\blogServiceImpl.java
 C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\services\implement\categoryServiceImpl.java
+C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\services\StorageService.java
