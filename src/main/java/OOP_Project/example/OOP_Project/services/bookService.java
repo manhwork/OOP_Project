@@ -24,4 +24,6 @@ public interface bookService {
     Boolean delete(bookModel book);
 
     List<bookModel> getItem();
+
+    bookModel getItemSlug(String slug);
 }

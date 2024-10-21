@@ -13,8 +13,11 @@ import org.springframework.data.jpa.repository.Query;
  *
  * @author admin
  */
-public interface bookRepository extends JpaRepository<bookModel, Integer>{
-    
+public interface bookRepository extends JpaRepository<bookModel, Integer> {
+
     @Query("SELECT b FROM bookModel b WHERE b.is_exist = true")
     List<bookModel> find();
+
+    bookModel findBySlug(String slug);
+
 }

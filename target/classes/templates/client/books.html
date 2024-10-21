@@ -63,22 +63,24 @@
                     <h1 class="inner-more">More Books</h1>
                     <div class="inner-main">
                         <div th:each="record : ${records}" class="inner-box" >
-                            <div
-                                class='inner-img'
-                                width='100%'
-                                height='100%'
-                                >
-                                <img
+                            <a th:href="@{'/books/' + ${record.slug}}" >
+                                <div
+                                    class='inner-img'
                                     width='100%'
                                     height='100%'
-                                    class="inner-img"
-                                    th:src="@{'/uploads/' + ${record.image}}"
-                                    alt=""
-                                    />
-                            </div>
-                            <div class="inner-cate" th:text="${record.category.title}"></div>
-                            <div class="inner-title" th:text="${record.title}"></div>
-                            <div class="inner-price" th:text="${record.price} + '$'"></div>
+                                    >
+                                    <img
+                                        width='100%'
+                                        height='100%'
+                                        class="inner-img"
+                                        th:src="@{'/uploads/' + ${record.image}}"
+                                        alt=""
+                                        />
+                                </div>
+                                <div class="inner-cate" th:text="${record.category.title}"></div>
+                                <div class="inner-title" th:text="${record.title}"></div>
+                                <div class="inner-price" th:text="${record.price} + '$'"></div>
+                            </a>
                         </div>
                     </div>
                 </div>
