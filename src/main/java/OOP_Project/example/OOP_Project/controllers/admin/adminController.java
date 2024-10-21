@@ -19,7 +19,7 @@ public class adminController {
 
     @GetMapping
     public String index(){
-        return "redirect:/admin/";
+        return "redirect:/admin/dashboard";
     }
 
 //    @GetMapping("/admin/dashboard")

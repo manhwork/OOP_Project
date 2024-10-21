@@ -4,12 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceAdminImpl implements UserServiceAdmin {
     @Autowired
-    private UserRepository userRepository;
+    private UserRepositoryAdmin userRepositoryAdmin;
 
     @Override
     public User findByUserName(String userName) {
-        return userRepository.findByUserName(userName);
+        return userRepositoryAdmin.findByUserName(userName);
     }
 }

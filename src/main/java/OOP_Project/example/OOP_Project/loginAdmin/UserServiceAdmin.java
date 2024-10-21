@@ -1,5 +1,5 @@
 package OOP_Project.example.OOP_Project.loginAdmin;
 
-public interface UserService {
+public interface UserServiceAdmin {
     User findByUserName(String userName);
 }

@@ -16,11 +16,11 @@ import java.util.Set;
 public class CustomerUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private UserService userService;
+    private UserServiceAdmin userServiceAdmin;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userService.findByUserName(username);
+        User user = userServiceAdmin.findByUserName(username);
         if(user == null){
             throw new UsernameNotFoundException("Sai");
         }
