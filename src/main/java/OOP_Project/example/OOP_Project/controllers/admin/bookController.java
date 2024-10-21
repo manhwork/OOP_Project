@@ -1,8 +1,10 @@
 package OOP_Project.example.OOP_Project.controllers.admin;
 
 import OOP_Project.example.OOP_Project.models.bookModel;
+import OOP_Project.example.OOP_Project.models.categoryModel;
 import OOP_Project.example.OOP_Project.services.StorageService;
 import OOP_Project.example.OOP_Project.services.bookService;
+import OOP_Project.example.OOP_Project.services.categoryService;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -29,6 +31,9 @@ public class bookController {
     @Autowired
     private StorageService storageService;
 
+    @Autowired
+    private categoryService categoryService;
+
     @GetMapping("/books")
     public String index(Model model) {
         List<bookModel> records = this.bookService.getItem();
@@ -43,6 +48,8 @@ public class bookController {
     public String add(Model model) {
         String title = "Thêm mới danh mục sản phẩm";
         model.addAttribute("title", title);
+        List<categoryModel> categories = categoryService.getItem();
+        model.addAttribute("categories", categories);
         model.addAttribute("books", new bookModel());
         return "admin/booksAdd";
     }
@@ -66,6 +73,8 @@ public class bookController {
         model.addAttribute("title", title);
         bookModel data = this.bookService.findById(id);
         model.addAttribute("books", data);
+        List<categoryModel> categories = categoryService.getItem();
+        model.addAttribute("categories", categories);
 
         return "admin/booksEdit";
     }

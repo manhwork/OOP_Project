@@ -5,10 +5,12 @@ import jakarta.persistence.Entity;
 //import jakarta.persistence.GeneratedValue;
 //import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import java.util.Date;
 import java.util.Random;
+import java.util.Set;
 
 @Entity
 @Table(name = "categories")
@@ -35,15 +37,26 @@ public class categoryModel {
     private Date updateAt = new Date();
     @Column(name = "image")
     private String image;
+    @OneToMany(mappedBy = "category")
+    private Set<bookModel> books;
 
     public categoryModel() {
     }
 
-    public categoryModel(String title, String description, String slug, String image) {
+    public categoryModel(String title, String description, String slug, String image, Set<bookModel> books) {
         this.title = title;
         this.description = description;
         this.slug = slug;
         this.image = image;
+        this.books = books;
+    }
+
+    public Set<bookModel> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<bookModel> books) {
+        this.books = books;
     }
 
     public String getImage() {

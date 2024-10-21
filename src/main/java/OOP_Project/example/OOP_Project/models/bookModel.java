@@ -7,6 +7,8 @@ package OOP_Project.example.OOP_Project.models;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import java.util.Date;
@@ -40,34 +42,41 @@ public class bookModel {
     @Column(name = "updateAt")
     private Date updateAt = new Date();
     @Column(name = "price")
-    private Double price = (double)0;
+    private Double price = (double) 0;
     @Column(name = "discount")
-    private Double discount = (double)0;
+    private Double discount = (double) 0;
     @Column(name = "stock")
     private Integer stock = 0;
     @Column(name = "image")
     private String image;
     @Column(name = "is_outstanding")
     private Boolean is_outstanding = false;
-    @Column(name = "category_id")
-    private Integer category_id;
+
+    @ManyToOne
+    @JoinColumn(name = "category", referencedColumnName = "id")
+    private categoryModel category;
 
     public bookModel() {
     }
 
-    public bookModel(String title, String description, String slug, Double price, Double discount, Integer stock, String image, Integer category_id) {
+    public bookModel(String title, String description, String slug, String image, categoryModel category) {
         this.title = title;
         this.description = description;
         this.slug = slug;
-        this.price = price;
-        this.discount = discount;
-        this.stock = stock;
         this.image = image;
-        this.category_id = category_id;
+        this.category = category;
     }
 
     public Integer getId() {
         return id;
+    }
+
+    public categoryModel getCategory() {
+        return category;
+    }
+
+    public void setCategory(categoryModel category) {
+        this.category = category;
     }
 
     public void setId(Integer id) {
@@ -169,14 +178,6 @@ public class bookModel {
 
     public void setIs_outstanding(Boolean is_outstanding) {
         this.is_outstanding = is_outstanding;
-    }
-
-    public Integer getCategory_id() {
-        return category_id;
-    }
-
-    public void setCategory_id(Integer category_id) {
-        this.category_id = category_id;
     }
 
     //    hàm tạo slug tự động
