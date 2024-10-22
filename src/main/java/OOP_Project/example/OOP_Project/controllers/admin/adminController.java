@@ -7,16 +7,23 @@ package OOP_Project.example.OOP_Project.controllers.admin;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
  * @author MTQV
  */
 @Controller
-
+@RequestMapping("/admin")
 public class adminController {
 
-    @GetMapping("/admin/dashboard")
+    @GetMapping
+    public String index(){
+        return "redirect:/admin/dashboard";
+    }
+
+//    @GetMapping("/admin/dashboard")
+    @GetMapping("/dashboard")
     public String index(Model model) {
         String title = "Trang quản trị";
         model.addAttribute("title", title);
