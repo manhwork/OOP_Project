@@ -1,4 +1,6 @@
+C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\config\WebConfig.java
 C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\admin\adminController.java
+C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\admin\BlogApiController.java
 C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\admin\blogCategoryController.java
 C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\admin\blogController.java
 C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\admin\categoryController.java
@@ -8,8 +10,6 @@ C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\cont
 C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\client\ContactCtrl.java
 C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\client\homeController.java
 C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\client\ShoppingCartCtrl.java
-C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\client\SignInCtrl.java
-C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\controllers\client\SignUpCtrl.java
 C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\models\blogCategoryModel.java
 C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\models\BlogModel.java
 C:\Users\ThinkPad\OOP_Project\src\main\java\OOP_Project\example\OOP_Project\models\categoryModel.java

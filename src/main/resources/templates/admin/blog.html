@@ -19,10 +19,10 @@
                             <tr th:each="record, index : ${records}">
                                 <td th:text="${index.index + 1}"></td>
                                 <td>
-                                    <img th:src="@{'/uploads/' + ${record.image}}" alt="Hình ảnh minh họa" width="100">
+                                    <img th:src="@{'/uploads/' + ${record.image}}" alt="Hình ảnh minh họa" width="100" height="50">
                                 </td>
                                 <td th:text="${record.title}"></td>
-
+                                
                                 <td>
                                     <span th:if="${record.is_active}" class="label label-success">Hoạt động</span>
                                     <span th:if="${!record.is_active}" class="label label-danger">Dừng hoạt động</span>
