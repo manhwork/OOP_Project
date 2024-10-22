@@ -30,4 +30,6 @@ public interface bookService {
     bookModel getItemSlug(String slug);
 
     List<bookModel> getNewProduct();
+
+    List<bookModel> search(String keyword);
 }

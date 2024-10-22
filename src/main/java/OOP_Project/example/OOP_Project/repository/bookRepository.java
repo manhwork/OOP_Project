@@ -25,6 +25,7 @@ public interface bookRepository extends JpaRepository<bookModel, Integer> {
 
     @Query("SELECT b from bookModel b where b.is_exist = true order by b.creatAt desc limit 6")
     List<bookModel> findNewProduct();
-    
 
+    @Query("select b from bookModel b where b.is_exist = true and b.title like %:keyword%")
+    List<bookModel> search(String keyword);
 }

@@ -5,12 +5,23 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Home</title>
+        <title th:text='${pageTitle}'></title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
               integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
               crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" th:href="@{/assets/reset.css}" />
         <link rel="stylesheet" th:href="@{/assets/base.css}" />
+        <style>
+            .header .inner-search {
+                outline: none;
+                border: none;
+                padding: 15px 20px;
+            }
+
+            .d-none {
+                display: none;
+            }
+        </style>
 
     </head>
 
@@ -44,7 +55,10 @@
 
                     <div class="inner-feature">
 
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <form form-search action="/books/search" method="get">
+                            <input input-search class="inner-search"  th:value="${keyword}" type="text" name="keyword" placeholder="Search..." />
+                            <button class='d-none' type="submit">Search</button>
+                        </form>
                         <a href="">
                             <div style="color: var(--color-cart)" class="ineer-price">
                                 $0.00

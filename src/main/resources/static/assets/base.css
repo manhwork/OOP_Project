@@ -27,8 +27,8 @@ body {
 }
 
 a {
-    text-decoration: none;
-    color: var(--coler-footer);
+    text-decoration: none !important;
+    color: var(--coler-footer) !important;
 }
 
 li {

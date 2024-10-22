@@ -120,7 +120,7 @@
 
 .section-4 .inner-head {
     text-align: center;
-    
+
 }
 
 .section-4 .inner-head .inner-title {
@@ -139,10 +139,16 @@
 .section-4 .inner-main {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .section-4 .inner-box {
     width: 20%;
+}
+
+.section-4 img {
+    width: 100%;
+    /*height: 100%*/
 }
 
 .section-4 .inner-main .inner-cate {
@@ -182,7 +188,7 @@
 .section-5 .inner-head {
     text-align: center;
     padding: 70px 0;
-    
+
 }
 
 .section-5 .inner-head .inner-title {
@@ -195,7 +201,7 @@
 .section-5 .inner-head .inner-desc {
     font-size: 18px;
     margin-bottom: 30px;
-    
+
 }
 
 .section-5 .inner-main {
@@ -236,7 +242,7 @@
     padding: 80px 0;
     text-align: center;
     flex-direction: column;
-    
+
 }
 
 .section-6 .inner-title {
@@ -256,7 +262,7 @@
     /*background: linear-gradient(45deg, #ced4da,black);*/
 }
 .inner-slide img {
-    max-height: 600px;  
+    max-height: 600px;
 }
 
 .inner-slide img {
@@ -265,11 +271,11 @@
 
 }
 .inner-slide .carousel-books{
-   margin: auto;
+    margin: auto;
     flex: 1;
     margin: 10% 10% 10% 1%;
     color: #ffffff;
-    
+
 }
 .inner-slide .button{
     border:1px solid #ffffff;

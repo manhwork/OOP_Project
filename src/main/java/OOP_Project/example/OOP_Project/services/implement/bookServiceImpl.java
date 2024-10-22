@@ -84,4 +84,9 @@ public class bookServiceImpl implements bookService {
     public List<bookModel> getNewProduct() {
         return this.bookRepository.findNewProduct();
     }
+
+    @Override
+    public List<bookModel> search(String keyword) {
+        return this.bookRepository.search(keyword);
+    }
 }

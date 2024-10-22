@@ -29,7 +29,8 @@ public class homeController {
         model.addAttribute("books", books);
         List<bookModel> booksNew = this.bookService.getNewProduct();
         model.addAttribute("booksNew", booksNew);
-        model.addAttribute("pageTitle", "Home");
+        String pageTitle = "Home";
+        model.addAttribute("pageTitle", pageTitle);
         return "client/home.html";
     }
 

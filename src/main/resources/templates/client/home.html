@@ -164,79 +164,18 @@
                                 <img class="inner-img" th:src="@{'/uploads/' + ${book.image}}" alt="" />
                                 <div class="inner-cate" th:text="${book.category.title}">Fantasy</div>
                                 <div class="inner-title" th:text="${book.title}">The Born of APLEX</div>
-                                <div class="inner-price" th:text="'$' + ${book.title}">$26.00</div>
+                                <div class="inner-price" th:text="'$' + ${book.price}">$26.00</div>
                             </a>
                         </div>
                     </div>
 
                     <div class="inner-btn">
-                        <button class="button">Shop All Books</button>
+                        <a href="/books"><button class="button">Shop All Books</button></a>
                     </div>
                 </div>
             </div>
         </section>
         <!-- end  section-4  -->
-
-        <!-- section-5  -->
-        <section class="section-5">
-            <div class="container">
-                <div class="row">
-                    <div class="inner-head">
-                        <h1 class="inner-title">Latest Audiobook</h1>
-                        <div class="inner-desc">
-                            Vulputate vulputate eget cursus nam ultricies
-                            mauris, malesuada elementum lacus arcu, sit dolor
-                            <br />
-                            ipsum, ac felis, egestas vel tortor eget aenean.
-                        </div>
-                    </div>
-
-                    <div class="inner-main">
-                        <div class="inner-box">
-                            <img src="/media/author-book-store-audio-book-img-1.jpg" alt="" />
-                            <div class="inner-title">
-                                Teebo: A Fallen Empire
-                            </div>
-                            <div class="inner-display">
-                                <i class="fa-solid fa-play"></i>
-                                <span class="inner-desc">Listen now</span>
-                            </div>
-                        </div>
-                        <div class="inner-box">
-                            <img src="/media/author-book-store-audio-book-img-1.jpg" alt="" />
-                            <div class="inner-title">
-                                Teebo: A Fallen Empire
-                            </div>
-                            <div class="inner-display">
-                                <i class="fa-solid fa-play"></i>
-                                <span class="inner-desc">Listen now</span>
-                            </div>
-                        </div>
-                        <div class="inner-box">
-                            <img src="/media/author-book-store-audio-book-img-1.jpg" alt="" />
-                            <div class="inner-title">
-                                Teebo: A Fallen Empire
-                            </div>
-                            <div class="inner-display">
-                                <i class="fa-solid fa-play"></i>
-                                <span class="inner-desc">Listen now</span>
-                            </div>
-                        </div>
-                        <div class="inner-box">
-                            <img src="/media/author-book-store-audio-book-img-1.jpg" alt="" />
-                            <div class="inner-title">
-                                Teebo: A Fallen Empire
-                            </div>
-                            <div class="inner-display">
-                                <i class="fa-solid fa-play"></i>
-                                <span class="inner-desc">Listen now</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end section-5  -->
 
         <!-- section -6 -->
         <section class="section-6">
