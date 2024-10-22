@@ -79,4 +79,9 @@ public class bookServiceImpl implements bookService {
     public List<bookModel> getItemOS() {
         return this.bookRepository.findOS();
     }
+
+    @Override
+    public List<bookModel> getNewProduct() {
+        return this.bookRepository.findNewProduct();
+    }
 }

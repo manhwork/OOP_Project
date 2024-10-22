@@ -23,4 +23,8 @@ public interface bookRepository extends JpaRepository<bookModel, Integer> {
     @Query("SELECT b FROM bookModel b WHERE b.is_outstanding = true AND b.is_exist = true")
     List<bookModel> findOS();
 
+    @Query("SELECT b from bookModel b where b.is_exist = true order by b.creatAt desc limit 6")
+    List<bookModel> findNewProduct();
+    
+
 }

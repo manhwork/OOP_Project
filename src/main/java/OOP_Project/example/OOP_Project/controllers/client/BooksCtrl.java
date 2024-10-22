@@ -22,6 +22,8 @@ public class BooksCtrl {
         List<bookModel> records = this.bookService.getItem();
         model.addAttribute("records", records);
         model.addAttribute("pageTitle", "Books");
+        List<bookModel> booksNew = this.bookService.getNewProduct();
+        model.addAttribute("booksNew", booksNew);
         return "client/books.html";
     }
 

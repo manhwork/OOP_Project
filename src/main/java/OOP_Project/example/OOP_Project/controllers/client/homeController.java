@@ -27,6 +27,8 @@ public class homeController {
     public String home(ModelMap model) {
         List<bookModel> books = this.bookService.getItemOS();
         model.addAttribute("books", books);
+        List<bookModel> booksNew = this.bookService.getNewProduct();
+        model.addAttribute("booksNew", booksNew);
         model.addAttribute("pageTitle", "Home");
         return "client/home.html";
     }

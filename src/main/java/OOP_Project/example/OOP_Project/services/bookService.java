@@ -28,4 +28,6 @@ public interface bookService {
     List<bookModel> getItemOS();
 
     bookModel getItemSlug(String slug);
+
+    List<bookModel> getNewProduct();
 }
