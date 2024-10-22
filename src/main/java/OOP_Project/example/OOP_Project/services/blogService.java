@@ -19,4 +19,6 @@ public interface blogService {
     Boolean update (BlogModel blog);
     
     List<BlogModel> getItem();
+    
+    BlogModel getItemSlug(String slug);
 }

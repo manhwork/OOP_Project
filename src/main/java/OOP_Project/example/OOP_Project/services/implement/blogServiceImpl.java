@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class blogServiceImpl implements blogService {
     @Autowired
     private blogRepository blogRepository;
-    
+ 
     @Override
     public List<BlogModel> getAllBlogs() {
         return blogRepository.find();
@@ -30,6 +30,10 @@ public class blogServiceImpl implements blogService {
         return this.blogRepository.find();
     }
     
+    @Override
+    public BlogModel getItemSlug(String slug){
+        return this.blogRepository.findBySlug(slug);
+    }
     // Update
     @Override
     public Boolean update(BlogModel blog) {

@@ -1,52 +1,53 @@
+
 package OOP_Project.example.OOP_Project.models;
 
 import jakarta.persistence.*;
 import java.util.Date;
-import java.util.Random;
+
 
 @Entity
 @Table(name = "blog")
 public class BlogModel {
-
     @Id
     @Column(name = "id")
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id = new Random().nextInt(Integer.MAX_VALUE);
-    ;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     @Column(name = "title")
     private String title;
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "LONGTEXT")
     private String description;
     @Column(name = "slug")
     private String slug;
     @Column(name = "img")
     private String image;
-
+    
     @Column(name = "createAt")
-    private Date createAt = new Date();
-
+    private Date createAt = new Date() ;
+    
     @Column(name = "updateAt")
     private Date updateAt = new Date();
-
+    
     @Column(name = "is_active")
     private Boolean is_active = true;
-
+    
     @Column(name = "is_exist")
     private Boolean is_exist = true;
-
+    
     @ManyToOne
-    @JoinColumn(name = "blogCate", referencedColumnName = "id", nullable = true) //đang xem trường hợp nullable = false
+    @JoinColumn(name="blogCate_id",referencedColumnName="id", nullable = true) //đang xem trường hợp nullable = false
     private blogCategoryModel blogCategory;
 
-    public BlogModel(String title, String description, String image, String slug) {
+    public BlogModel(String title, String description,String image, String slug) {
         this.title = title;
         this.description = description;
         this.slug = slug;
         this.image = image;
     }
 
-    public BlogModel() {
+    
 
+    public BlogModel() {
+        
     }
 
     public int getId() {
@@ -106,6 +107,8 @@ public class BlogModel {
         this.updateAt = updateAt;
     }
 
+    
+
     public Boolean getIs_active() {
         return is_active;
     }
@@ -129,7 +132,6 @@ public class BlogModel {
     public void setBlogCategory(blogCategoryModel blogCategory) {
         this.blogCategory = blogCategory;
     }
-
     public void generateSlug() {
         if (this.title != null) {
             this.slug = this.title.trim().toLowerCase().replaceAll("\\s+", "-");
@@ -139,6 +141,5 @@ public class BlogModel {
     @PrePersist
     protected void createOn() {
         generateSlug();
-
     }
 }

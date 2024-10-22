@@ -2,70 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{client/base}">
+<head>
+    <title>Blog</title>
+    <link rel="stylesheet" th:href="@{/assets/pages/books/style.css}" />
+    <link rel="stylesheet" th:href="@{/assets/pages/blog/style-blog.css}" />
+ 
+</head>
+<body>
     <div layout:fragment="base">
-        <head>
-            <title>Blog</title>
-            <link rel="stylesheet" th:href="@{/assets/pages/books/style.css}" />
-            <link rel="stylesheet" th:href="@{/assets/pages/blog/style-blog.css}" />
-        </head>
-
-        <script>
-            const getBlogs = async () => {
-                try {
-                    const response = await fetch('http://localhost:8080/admin/api/blogs'); // gửi yêu cầu GET đến API
-                    const data = await response.json();
-                    displayBlogs(data); // Hiển thị danh sách blog từ API
-                } catch (error) {
-                    console.error('Error fetching blogs:', error);
-                }
-            };
-
-            const displayBlogs = (blogs) => {
-                const container = document.querySelector('.card-container');
-                container.innerHTML = ''; // Xóa nội dung hiện tại
-                
-                blogs.reverse(); // Bài viết thêm sau sẽ hiện lên trước
-                
-                blogs.forEach(blog => {
-                    const card = document.createElement('div');
-                    card.className = 'card';
-                    card.innerHTML = `
-                        <img src="/uploads/${blog.image}" alt="${blog.title}">
-                        <div class="card-content">
-                            <h2>${blog.title}</h2>
-                            <p class="beta">${blog.category} / ${blog.author}</p>
-                            <p>${blog.description}</p>
-                            <a href="/blog/BlogDetail/${blog.id}" class="read-more">Read More</a>
-                        </div>
-                    `;
-                    container.appendChild(card);
-                });
-            };
-
-            const createBlog = async (blog) => {
-                try {
-                    const response = await fetch('http://localhost:8080/admin/api/blogs', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(blog),
-                    });
-                    const data = await response.json();
-                    console.log('Blog created:', data);
-                    getBlogs(); // Gọi lại hàm để cập nhật danh sách blog
-                } catch (error) {
-                    console.error('Error creating blog:', error);
-                }
-            };
-
-            // Gọi hàm getBlogs để hiển thị blog khi trang được load
-            window.onload = getBlogs;
-        </script>
-
-        <div class="card-container">
-            
+        <div class="card-container" th:each="blog : ${blogs}">
+            <div class="card">
+                <img th:src="@{'/uploads/'+${blog.image}}" alt="">
+                <div class="card-content">
+                    <h2 th:text="${blog.title}"></h2>
+<!--                    <p class="beta" th:text="${blog.category}"></p>-->
+                    <p th:if="${blog.description.length() > 100}" th:text="${#strings.substring(blog.description,0,250)+ '[...]'}"></p>
+                    <p th:if="${blog.description.length() <= 100}" th:text="${blog.description}"></p>
+                    <a th:href="@{/blog/BlogDetail/{slug}(slug=${blog.slug})}" class="read-more">Read More</a>
+                </div>
+            </div>
         </div>
+
+        
 
         <div class="sub">
             <div class="subscribe-container">
@@ -73,7 +31,6 @@
                 <p>
                     Lectus amet scelerisque fusce est venenatis, eget enim dolor amet vitae pharetra
                 </p>
-
                 <div class="subscribe-form">
                     <input type="email" placeholder="Your email please">
                     <button type="submit">Subscribe</button>
@@ -81,4 +38,5 @@
             </div>
         </div>
     </div>
+</body>
 </html>

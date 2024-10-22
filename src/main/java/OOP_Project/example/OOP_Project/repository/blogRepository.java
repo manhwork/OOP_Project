@@ -10,4 +10,8 @@ import org.springframework.data.jpa.repository.Query;
 public interface blogRepository  extends JpaRepository<BlogModel, Integer>{
     @Query("SELECT c FROM BlogModel c WHERE c.is_exist = true")
     List<BlogModel> find();
+    
+    BlogModel findBySlug(String slug);
+    
+    
 }
