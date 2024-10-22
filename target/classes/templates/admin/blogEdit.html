@@ -13,6 +13,12 @@
                         <label for="title">Tiêu đề</label>
                         <input th:field="*{title}" type="text" class="form-control" id="title" placeholder="Nhập tiêu đề">
                     </div>
+                    <div class="form-group" bis_skin_checked="1">
+                        <label for="category">Danh mục bài viết</label>
+                        <select class="form-control" th:field="*{blogCategory.id}" id="category">
+                            <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.title}"></option>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label for="description">Mô tả</label>
                         <input th:field="*{description}" type="text" class="form-control" id="description" placeholder="Nhập mô tả">

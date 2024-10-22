@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{client/base}">
+    <div layout:fragment="base">
+        <head>
+            <title>Books</title>
+            <link rel="stylesheet" th:href="@{/assets/pages/books/style.css}" />
+        </head>
+
+
+        <!-- Sectione 1  -->
+        <section class="section-1">
+            <div class="container">
+                <div class="row">
+                    <h1 class="inner-title">Books</h1>
+                    <p class="inner-desc">
+                        Porttitor in nibh id aliquet quam aliquam aliquet
+                        pulvinar integer dolor quis elementum, dui <br />
+                        cursus nisi, nunc viverra nulla fringilla.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- End Sectione 1  -->
+
+
+        <!-- section-3 -->
+        <section class="section-3">
+            <div class="container">
+                <div class="row">
+                    <h1 class="inner-more">More Books</h1>
+                    <div class="inner-main">
+                        <div th:each="record : ${records}" class="inner-box" >
+                            <a th:href="@{'/books/' + ${record.slug}}" >
+                                <div
+                                    class='inner-img'
+                                    width='100%'
+                                    height='100%'
+                                    >
+                                    <img
+                                        width='100%'
+                                        height='100%'
+                                        class="inner-img"
+                                        th:src="@{'/uploads/' + ${record.image}}"
+                                        alt=""
+                                        />
+                                </div>
+                                <div class="inner-cate" th:text="${record.category.title}"></div>
+                                <div class="inner-title" th:text="${record.title}"></div>
+                                <div class="inner-price" th:text="${record.price} + '$'"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end section-3 -->
+
+        <!-- section -4 -->
+        <section class="section-4">
+            <div class="container">
+                <div class="row">
+                    <h1 class="inner-title">Be the first to know</h1>
+                    <p class="inner-desc">
+                        Lectus amet scelerisque fusce est venenatis, eget enim
+                        <br />
+                        dolor amet vitae pharetra
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- End section -4 -->
+
+
+
+    </body>
+</html>

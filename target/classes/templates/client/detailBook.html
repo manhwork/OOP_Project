@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{client/base}">
+    <div layout:fragment="base">
+        <head>
+            <link rel="stylesheet" th:href="@{/assets/pages/contact/stylesp.css}" />
+            <style>
+                .original-price {
+                    text-decoration: line-through;
+                    color: red;
+                }
+                .discount-price {
+                    color: green;
+                    font-weight: bold;
+                }
+                .discount-percent {
+                    color: blue;
+                    font-style: italic;
+                }
+            </style>
+        </head>
+
+        <!--Sec1-->
+        <section class="product">
+            <div class="container">
+                <div class="row">
+                    <div class="img">
+                        <img th:src="@{'/uploads/' + ${book.image}}" alt="the born of aplex" width="450px" height="600px">
+                    </div>
+                    <div class="bookif">
+                        <div class="inner-bookif">
+                            <h1 class="inner-title" th:text="${book.title}"></h1>
+                            <p class="original-price" th:text="'$' + ${book.price}"></p>
+                            <p class="discount-percent" th:text="'Discount: ' + ${book.discount} + '%'"></p>
+                            <p class="discount-price" th:text="'New Price: $' + (${book.price} - (${book.price} * ${book.discount} / 100))"></p>
+                            <p th:text="${book.description}"></p>
+                        </div>
+                        <div class="quantity">
+                            <form action="#" method="post">
+                                <input type="number" value="1" min="1">
+                                <button class="button" >Add to cart</button>
+                            </form>
+                        </div>
+                        <div class="tag">
+                            <div class="category">
+                                Category: <a href="#" th:text="${book.category.title}">Fantasy</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Sec2-->
+        <section class="review">
+            <div class="container">
+                <div class="row">                    
+                    <div class="Description">
+                        <h1 class="inner-title">Description</h1>
+                        <p th:text='${book.description}'></p>
+                    </div>
+                    <div class="review-section">
+                        <h1 class="inner-title">Reviews</h1>
+                        <p>There are no reviews yet.</p>
+                        <p>Be the first to review "The Born of APLEX"</p>
+                        <p>Your email address will not be published. Required fields are marked *</p>
+                        <form class="review-form">
+                            <label for="rating">Your rating *</label>
+                            <div class="rating">
+                                <input type="radio" id="star5" name="rating" value="5"><label for="star5" title="1 star">★</label>
+                                <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="2 stars">★</label>
+                                <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">★</label>
+                                <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="4 stars">★</label>
+                                <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="5 stars">★</label>
+                            </div>
+                            <label for="review">Your review *</label>
+                            <textarea id="review" name="review" rows="4" required></textarea>
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                            <label>
+                                <input type="checkbox" name="save-info"> Save my information in this browser for the next time I comment.
+                            </label>
+                            <button type="submit" class="button">Submit</button>
+                        </form>
+                    </div>
+
+                </div>      
+            </div>
+        </section>
+        <!--Sec3-->
+        <section class="related">
+            <div class="container">
+            </div>
+        </section>
+        <!--Sec4-->
+        <section class="btftn">
+            <div class="container">
+                <div class="row">
+                    <h1 class="inner-title">Be the first to know</h1>
+                    <p>Lectus amet scelerisque fusce est venenatis, eget enim dolor amet vitae<br> pharetra</p>
+                    <div class="sub">
+                        <form action="#" method="post">
+                            <input type="email" name="email" placeholder="Your email please" required>
+                            <button class="button">Subcribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>    
+</html>

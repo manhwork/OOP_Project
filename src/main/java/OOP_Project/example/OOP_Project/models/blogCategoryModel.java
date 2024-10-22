@@ -1,38 +1,40 @@
-
 package OOP_Project.example.OOP_Project.models;
 
 import jakarta.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
+
 @Entity
-@Table(name="blog_category")
+@Table(name = "blog_category")
 public class blogCategoryModel {
+
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
-    private int id;
-    @Column(name ="title")
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    private int id = new Random().nextInt(Integer.MAX_VALUE);
+    ;
+    @Column(name = "title")
     private String title;
-    @Column(name ="description")
+    @Column(name = "description")
     private String description;
-    @Column(name ="slug")
+    @Column(name = "slug")
     private String slug;
-    
-  
-     @Column(name = "createAt")
-    private Date createAt = new Date() ;
-    
+
+    @Column(name = "createAt")
+    private Date createAt = new Date();
+
     @Column(name = "updateAt")
     private Date updateAt = new Date();
-    
+
     @Column(name = "is_active")
     private Boolean is_active = true;
-    
+
     @Column(name = "is_exist")
     private Boolean is_exist = true;
-    
+
     @OneToMany(mappedBy = "blogCategory", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<BlogModel> blogs = new HashSet<>();
 
@@ -52,7 +54,7 @@ public class blogCategoryModel {
     public void setBlogs(Set<BlogModel> blogs) {
         this.blogs = blogs;
     }
-    
+
     public int getId() {
         return id;
     }
@@ -117,7 +119,7 @@ public class blogCategoryModel {
     public void setIs_exist(Boolean is_exist) {
         this.is_exist = is_exist;
     }
-    
+
     public void generateSlug() {
         if (this.title != null) {
             this.slug = this.title.trim().toLowerCase().replaceAll("\\s+", "-");
@@ -127,14 +129,12 @@ public class blogCategoryModel {
     @PrePersist
     protected void createOn() {
         generateSlug();
-       
+
     }
-    
+
     public void addBlog(BlogModel blog) {
         blogs.add(blog);
         blog.setBlogCategory(this);
     }
-    
-    
 
 }

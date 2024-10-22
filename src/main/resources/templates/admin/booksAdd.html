@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/base}">
+    <div layout:fragment="base">
+        <div class="box box-primary" bis_skin_checked="1">
+
+            <form role="form" enctype="multipart/form-data" th:action="@{/admin/books/add}" th:object="${books}" method="post">
+                <div class="box-body" bis_skin_checked="1">
+                    <div class="form-group" bis_skin_checked="1">
+                        <label for="title">Tiêu đề</label>
+                        <input th:field="*{title}" type="text" name="title" class="form-control" id="title" placeholder="Nhập tiêu đề">
+                    </div>
+                    <div class="form-group" bis_skin_checked="1">
+                        <label for="category">Danh mục sản phẩm</label>
+                        <select class="form-control" th:field="*{category.id}" id="category">
+                            <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.title}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group" bis_skin_checked="1">
+                        <label for="description">Mô tả</label>
+                        <input th:field="*{description}" type="text" name="description" class="form-control" id="description" placeholder="Nhập mô tả">
+                    </div>
+                    <div class="form-group f-flex justify-content-center align-item-center" bis_skin_checked="1">
+                        <label for="active">Hoạt động</label>
+                        <input checked='true' th:field="*{is_active}" id="active" style="margin-right: 10px " type="radio" name="is_active" value="1">
+                        <label for="inactive">Dừng hoạt động</label>
+                        <input th:field="*{is_active}" id="inactive" type="radio" name="is_active" value="0">
+                    </div>
+                    <div class="form-group" bis_skin_checked="1">
+                        <label for="price">Giá</label>
+                        <input th:field="*{price}" type="number" name="price" min="0" value="0" class="form-control" id="price" placeholder="Nhập giá">
+                    </div>
+                    <div class="form-group" bis_skin_checked="1">
+                        <label for="discount">Giảm giá(%)</label>
+                        <input th:field="*{discount}" type="number" name="discount" min="0" value="0" class="form-control" id="discount" placeholder="Nhập giảm giá">
+                    </div>
+                    <div class="form-group" bis_skin_checked="1">
+                        <label for="stock">Số lượng</label>
+                        <input th:field="*{stock}" type="number" name="stock" min="0" value="0" class="form-control" id="stock" placeholder="Nhập số lượng">
+                    </div>
+                    <div class="form-group f-flex justify-content-center align-item-center" bis_skin_checked="1">
+                        <label for="is_outstanding">Nổi bật </label>
+                        <input th:field="*{is_outstanding}" id="is_outstanding" style="margin-right: 10px " type="radio" name="is_outstanding" value="1">
+                        <label for="not_outstanding">Không</label>
+                        <input th:field="*{is_outstanding}" id="not_outstanding" type="radio" name="is_outstanding" value="0">
+                    </div>
+                    <div class="form-group" bis_skin_checked="1">
+                        <label for="file">Ảnh :</label>
+                        <input type="file" name="file" id="file">
+                    </div>
+                </div>
+
+                <div class="box-footer" bis_skin_checked="1">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</html>

@@ -3,23 +3,55 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{client/base}">
     <div layout:fragment="base">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" th:href="@{/assets/pages/home/style.css}" />
+        <link rel="stylesheet" th:href="@{/assets/reset.css}" />
+        <link rel="stylesheet" th:href="@{/assets/base.css}" />
+        <!-- Slide -->
+        <div class="inner-slide">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li th:each="book, index : ${books}" 
+                        data-target="#carouselExampleIndicators" 
+                        data-slide-to="${index.index}" 
+                        classappend="${index.index == 0} ? 'active'"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div th:each="book, index : ${books}" 
+                         th:class="|carousel-item ${index.index == 0 ? 'active' : ''}|">
+                        <div class="d-block w-100 d-flex">
+                            <img th:src="@{'/uploads/' + ${book.image}}" alt="Slide Image">
+                            <div class="carousel-books">
+                                <h1 class="inner-title" th:text="${book.title}"></h1>
+                                <p th:text="${book.description}"></p>
+                                <a th:href="@{'/books/' + ${book.slug}}"><button class="button">MORE</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <!-- End Slide -->
+
         <!-- section-1 -->
         <section class="section-1">
             <div class="container">
                 <div class="row">
                     <div class="inner-content">
                         <p class="inner-new">New Release</p>
-                        <h1 class="inner-title">The Sons of the Empire</h1>
-                        <p class="inner-desc1">
+                        <h1 class="inner-title" th:text="${booksNew[0].title}">The Sons of the Empire</h1>
+                        <p class="inner-desc1" th:text="${booksNew[0].description}">
                             Convallis feugiat enim consectetur mi purus massa
                             sit mus in ac lacus odio ut scelerisque parturient.
-                        </p>
-                        <p class="inner-desc2">
-                            Vitae quam interdum turpis faucibus non in quis
-                            volutpat eu, amet enim sed mattis augue sed ultrices
-                            vestibulum vitae praesent vitae id massa a rhoncus
-                            id donec odio.
                         </p>
                         <div class="inner-btn">
                             <button class="button button-1">Buy now</button>
@@ -27,7 +59,7 @@
                         </div>
                     </div>
                     <div class="inner-img">
-                        <img src="/media/author-book-store-hero-book-cover-img.jpg" alt="" />
+                        <img th:src="@{'/uploads/' + ${booksNew[0].image}}" alt="" />
                     </div>
                 </div>
             </div>
@@ -123,110 +155,27 @@
             <div class="container">
                 <div class="row">
                     <div class="inner-head">
-                        <div class="inner-title">Best Selling Books</div>
-                        <div class="inner-desc">
-                            Vulputate vulputate eget cursus nam ultricies
-                            mauris, malesuada elementum lacus arcu, sit dolor
-                            <br />
-                            ipsum, ac felis, egestas vel tortor eget aenean.
-                        </div>
+                        <div class="inner-title">New Books</div>
                     </div>
 
                     <div class="inner-main">
-                        <div class="inner-box">
-                            <img class="inner-img" src="/media/author-book-store-book-cover-06-300x450.jpg" alt="" />
-                            <div class="inner-cate">Fantasy</div>
-                            <div class="inner-title">The Born of APLEX</div>
-                            <div class="inner-price">$26.00</div>
-                        </div>
-                        <div class="inner-box">
-                            <img class="inner-img" src="/media/author-book-store-book-cover-06-300x450.jpg" alt="" />
-                            <div class="inner-cate">Fantasy</div>
-                            <div class="inner-title">The Born of APLEX</div>
-                            <div class="inner-price">$26.00</div>
-                        </div>
-                        <div class="inner-box">
-                            <img class="inner-img" src="/media/author-book-store-book-cover-06-300x450.jpg" alt="" />
-                            <div class="inner-cate">Fantasy</div>
-                            <div class="inner-title">The Born of APLEX</div>
-                            <div class="inner-price">$26.00</div>
-                        </div>
-                        <div class="inner-box">
-                            <img class="inner-img" src="/media/author-book-store-book-cover-06-300x450.jpg" alt="" />
-                            <div class="inner-cate">Fantasy</div>
-                            <div class="inner-title">The Born of APLEX</div>
-                            <div class="inner-price">$26.00</div>
+                        <div th:each="book : ${booksNew}" class="inner-box">
+                            <a th:href="@{'/books/' + ${book.slug}}">
+                                <img class="inner-img" th:src="@{'/uploads/' + ${book.image}}" alt="" />
+                                <div class="inner-cate" th:text="${book.category.title}">Fantasy</div>
+                                <div class="inner-title" th:text="${book.title}">The Born of APLEX</div>
+                                <div class="inner-price" th:text="'$' + ${book.price}">$26.00</div>
+                            </a>
                         </div>
                     </div>
 
                     <div class="inner-btn">
-                        <button class="button">Shop All Books</button>
+                        <a href="/books"><button class="button">Shop All Books</button></a>
                     </div>
                 </div>
             </div>
         </section>
         <!-- end  section-4  -->
-
-        <!-- section-5  -->
-        <section class="section-5">
-            <div class="container">
-                <div class="row">
-                    <div class="inner-head">
-                        <h1 class="inner-title">Latest Audiobook</h1>
-                        <div class="inner-desc">
-                            Vulputate vulputate eget cursus nam ultricies
-                            mauris, malesuada elementum lacus arcu, sit dolor
-                            <br />
-                            ipsum, ac felis, egestas vel tortor eget aenean.
-                        </div>
-                    </div>
-
-                    <div class="inner-main">
-                        <div class="inner-box">
-                            <img src="/media/author-book-store-audio-book-img-1.jpg" alt="" />
-                            <div class="inner-title">
-                                Teebo: A Fallen Empire
-                            </div>
-                            <div class="inner-display">
-                                <i class="fa-solid fa-play"></i>
-                                <span class="inner-desc">Listen now</span>
-                            </div>
-                        </div>
-                        <div class="inner-box">
-                            <img src="/media/author-book-store-audio-book-img-1.jpg" alt="" />
-                            <div class="inner-title">
-                                Teebo: A Fallen Empire
-                            </div>
-                            <div class="inner-display">
-                                <i class="fa-solid fa-play"></i>
-                                <span class="inner-desc">Listen now</span>
-                            </div>
-                        </div>
-                        <div class="inner-box">
-                            <img src="/media/author-book-store-audio-book-img-1.jpg" alt="" />
-                            <div class="inner-title">
-                                Teebo: A Fallen Empire
-                            </div>
-                            <div class="inner-display">
-                                <i class="fa-solid fa-play"></i>
-                                <span class="inner-desc">Listen now</span>
-                            </div>
-                        </div>
-                        <div class="inner-box">
-                            <img src="/media/author-book-store-audio-book-img-1.jpg" alt="" />
-                            <div class="inner-title">
-                                Teebo: A Fallen Empire
-                            </div>
-                            <div class="inner-display">
-                                <i class="fa-solid fa-play"></i>
-                                <span class="inner-desc">Listen now</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end section-5  -->
 
         <!-- section -6 -->
         <section class="section-6">
@@ -242,7 +191,17 @@
             </div>
         </section>
         <!-- End section-6 -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
     </div>
+
 </html>
 
 

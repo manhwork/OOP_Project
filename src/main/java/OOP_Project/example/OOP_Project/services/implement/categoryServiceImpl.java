@@ -27,6 +27,11 @@ public class categoryServiceImpl implements categoryService {
     }
 
     @Override
+    public List<categoryModel> getItem() {
+        return this.categoryRepository.find();
+    }
+
+    @Override
     public Boolean create(categoryModel category) {
         try {
             this.categoryRepository.save(category);
@@ -55,7 +60,14 @@ public class categoryServiceImpl implements categoryService {
 
     @Override
     public Boolean delete(categoryModel category) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            category.setIs_exist(Boolean.FALSE);
+            this.categoryRepository.save(category);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
 }
