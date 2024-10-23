@@ -26,19 +26,21 @@
             <div class="container">
                 <div class="row">
                     <div class="img">
-                        <img th:src="@{'/uploads/' + ${book.image}}" alt="the born of aplex" width="450px" height="600px">
+                        <img image th:src="@{'/uploads/' + ${book.image}}" alt="the born of aplex" width="450px" height="600px">
                     </div>
                     <div class="bookif">
                         <div class="inner-bookif">
-                            <h1 class="inner-title" th:text="${book.title}"></h1>
+                            <h1 title class="inner-title" th:text="${book.title}"></h1>
                             <p class="original-price" th:text="'$' + ${book.price}"></p>
                             <p class="discount-percent" th:text="'Discount: ' + ${book.discount} + '%'"></p>
                             <p class="discount-price" th:text="'New Price: $' + (${book.price} - (${book.price} * ${book.discount} / 100))"></p>
+                            <input price type="hidden" th:value="${book.price} - (${book.price} * ${book.discount} / 100)">
                             <p th:text="${book.description}"></p>
                         </div>
                         <div class="quantity">
-                            <form action="#" method="post">
-                                <input type="number" value="1" min="1">
+                            <form form-cart action="#" method="post">
+                                <input quantity type="number" value="1" min="1">
+                                <input bookId th:value="${book.id}" type="hidden" >
                                 <button class="button" >Add to cart</button>
                             </form>
                         </div>

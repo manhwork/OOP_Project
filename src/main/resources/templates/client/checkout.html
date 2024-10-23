@@ -4,37 +4,11 @@
       layout:decorate="~{client/base}">
     <div layout:fragment="base">
         <head>
-            <title>Shopping Cart</title>
+            <title>Check Out</title>
 
-            <link rel="stylesheet" th:href="@{/assets/pages/Shopping/style.css}" />
+            <link rel="stylesheet" th:href="@{/assets/pages/Checkout/checkout.css}" />
         </head>
 
-        <section class="cart">
-            <h2>Cart</h2>
-            <form action="">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Sản phẩm</th>
-                            <th>Giá</th>
-                            <th>Số lượng</th>
-                            <th>Chọn</th>
-                        </tr>
-                    </thead>
-                    <tbody id="cart-items">
-                        <!-- Các hàng sản phẩm sẽ được chèn vào đây -->
-                    </tbody>
-                </table>
-                <div style="text-align: right;" class="price_total">
-                    <p style="font-weight: bold;">
-                        Tổng tiền: <span>$</span><span id="total-price">0.00</span>
-                    </p>
-                </div>
-            </form>
-            
-        </section>
-        
-         <link rel="stylesheet" th:href="@{/assets/pages/Checkout/checkout.css}" />
         <section class="checkout">
             <div class="container">
                 <div class="row">
@@ -57,13 +31,14 @@
                                 <input type="email" id="email" name="email" required>
                                 <h2>Additional information</h2>
                                 <label for="note">Notes(optional)</label>
-                                <input style="margin-bottom: 20px" type="text" id="note" name="note" height="200px">
+                                <input type="text" id="note" name="note" height="200px">
+                            </div>
                                 <button type="submit" class="button">Place order</button>
                             </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
-
 
 </html>

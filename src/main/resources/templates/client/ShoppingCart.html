@@ -21,28 +21,49 @@
                             <th>Chọn</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td style="display: flex; align-items: center;"><img style="width: 70px" src="https://websitedemos.net/book-store-02/wp-content/uploads/sites/834/2021/05/author-book-store-book-cover-06-300x450.jpg" alt="">The born of APLEX</td>
-                            <td><span>$</span><span>30.00</span></td>
-                            <td><input style="width: 30px; outline: none; " type="number" value = "1" min = "1"></td>
-                            <td style="cursor: pointer;">Xóa</td>
-                        </tr> 
-                        <tr>
-                            <td style="display: flex; align-items: center;"><img style="width: 70px" src="https://websitedemos.net/book-store-02/wp-content/uploads/sites/834/2021/05/author-book-store-book-cover-06-300x450.jpg" alt="">The born of APLEX</td>
-                            <td><span>$</span><span>30.00</span></td>
-                            <td><input style="width: 30px; outline: none; " type="number" value = "1" min = "1"></td>
-                            <td style="cursor: pointer;">Xóa</td>
-                        </tr>                              
+                    <tbody id="cart-items">
+                        <!-- Các hàng sản phẩm sẽ được chèn vào đây -->
                     </tbody>
                 </table>
-                <div style="text-align: right;" class=.price_total>
+                <div style="text-align: right;" class="price_total">
                     <p style="font-weight: bold;">
-                        Tổng tiền: <span>$</span><span>30.00</span>
+                        Tổng tiền: <span>$</span><span id="total-price">0.00</span>
                     </p>
                 </div>
             </form>
+            
+        </section>
+        
+         <link rel="stylesheet" th:href="@{/assets/pages/Checkout/checkout.css}" />
+        <section class="checkout">
+            <div class="container">
+                <div class="row">
+                    <div class="checkout-form">
+                        <h1 class="inner-title">Checkout</h1>
+                        <form action="#" method="post">
+                            <div class="billing-details">
+                                <h2>Billing details</h2>
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                                <label for="company">Company(optional)</label>
+                                <input type="text" id="company" name="company">
+                                <label for="address">Address</label>
+                                <input type="text" id="address" name="address" required>
+                                <label for="zip">ZIP code</label>
+                                <input type="text" id="zip" name="zip" required>
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone" required>
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                                <h2>Additional information</h2>
+                                <label for="note">Notes(optional)</label>
+                                <input style="margin-bottom: 20px" type="text" id="note" name="note" height="200px">
+                                <button type="submit" class="button">Place order</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-   
+
 </html>
