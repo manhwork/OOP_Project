@@ -57,6 +57,14 @@
 .section-2 .inner-desc1 {
     font-weight: bold;
 }
+
+.section-2 .inner-img {
+    width: 50%;
+}
+
+.section-2 .inner-img img {
+    width: 100%;
+}
 /* end section-2  */
 
 /*  section-3  */

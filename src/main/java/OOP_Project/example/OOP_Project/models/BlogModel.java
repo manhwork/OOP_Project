@@ -14,7 +14,7 @@ public class BlogModel {
     private Integer id;
     @Column(name = "title")
     private String title;
-    @Column(name = "description", columnDefinition = "LONGTEXT")
+    @Column(name = "description")
     private String description;
     @Column(name = "slug")
     private String slug;
@@ -141,5 +141,6 @@ public class BlogModel {
     @PrePersist
     protected void createOn() {
         generateSlug();
+
     }
 }

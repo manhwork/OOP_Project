@@ -11,13 +11,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 80%;
-    padding: 40px 60px;
+    padding: 20px 0;
 }
 .product .img{
     flex: 1;
     display: flex;
     justify-content: center;
+    margin-right: 20px;
 }
 
 .product .bookif{
@@ -26,7 +26,6 @@
 
 .quantity{
     display: flex;
-    width: 60%;
     margin: 10px 0;
     justify-content: left;
 }

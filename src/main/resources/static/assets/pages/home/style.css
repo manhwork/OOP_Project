@@ -36,6 +36,14 @@
     font-weight: bold;
 }
 
+.section-1 .inner-img {
+    width: 50%;
+}
+
+.section-1 .inner-img img {
+    width: 100%;
+}
+
 /* end section-1  */
 
 /*  section-2  */
